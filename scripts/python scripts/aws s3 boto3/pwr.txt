@@ -1,0 +1,6 @@
+mnd-apm-asset-tag-payload
+power-dl-usw02-pr-osm-logs
+power-usw02-dev-osm-logs
+splunk-metric-streams-s3-229148303449-us-west-2
+terraform-20220806151716284300000001
+uai3027324teds

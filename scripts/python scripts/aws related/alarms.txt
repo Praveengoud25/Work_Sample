@@ -1,0 +1,87 @@
+Alarm name: Kinesis Failed Count
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:frontend_ingestion_monitor']
+
+Alarm name: Receive size too low
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:frontend_ingestion_monitor']
+
+Alarm name: TargetTracking-table/_SparkElt2.0_PROD__Duplicating_Distributor_-AlarmHigh-e6cf9f60-2030-4411-9c92-d332879cd238
+      Alarm Actions: ['arn:aws:autoscaling:us-east-1:497021971364:scalingPolicy:a4780944-caba-4520-9356-2b70af46aae5:resource/dynamodb/table/_SparkElt2.0_PROD__Duplicating_Distributor_:policyName/DynamoDBWriteCapacityUtilization:table/_SparkElt2.0_PROD__Duplicating_Distributor_']
+
+Alarm name: TargetTracking-table/_SparkElt2.0_PROD__Duplicating_Distributor_-AlarmHigh-fc688804-fc98-452f-862c-180f78f69ece
+      Alarm Actions: ['arn:aws:autoscaling:us-east-1:497021971364:scalingPolicy:d4008cfb-0bbb-4a93-be51-23c52b35b000:resource/dynamodb/table/_SparkElt2.0_PROD__Duplicating_Distributor_:policyName/DynamoDBReadCapacityUtilization:table/_SparkElt2.0_PROD__Duplicating_Distributor_']
+
+Alarm name: TargetTracking-table/_SparkElt2.0_PROD__Duplicating_Distributor_-ProvisionedCapacityHigh-003e7a35-9bf9-47f9-9eb9-282f7b54275c
+      Alarm Actions: ['arn:aws:autoscaling:us-east-1:497021971364:scalingPolicy:a4780944-caba-4520-9356-2b70af46aae5:resource/dynamodb/table/_SparkElt2.0_PROD__Duplicating_Distributor_:policyName/DynamoDBWriteCapacityUtilization:table/_SparkElt2.0_PROD__Duplicating_Distributor_']
+
+Alarm name: TargetTracking-table/_SparkElt2.0_PROD__Duplicating_Distributor_-ProvisionedCapacityHigh-f6ce2478-ad9d-4a0f-82af-a6bf16f10c72
+      Alarm Actions: ['arn:aws:autoscaling:us-east-1:497021971364:scalingPolicy:d4008cfb-0bbb-4a93-be51-23c52b35b000:resource/dynamodb/table/_SparkElt2.0_PROD__Duplicating_Distributor_:policyName/DynamoDBReadCapacityUtilization:table/_SparkElt2.0_PROD__Duplicating_Distributor_']
+
+Alarm name: TargetTracking-table/_SparkElt2.0_PROD__Duplicating_Distributor_-ProvisionedCapacityLow-14099f6d-1874-490b-b520-4afbd81c1df9
+      Alarm Actions: ['arn:aws:autoscaling:us-east-1:497021971364:scalingPolicy:d4008cfb-0bbb-4a93-be51-23c52b35b000:resource/dynamodb/table/_SparkElt2.0_PROD__Duplicating_Distributor_:policyName/DynamoDBReadCapacityUtilization:table/_SparkElt2.0_PROD__Duplicating_Distributor_']
+
+Alarm name: TargetTracking-table/_SparkElt2.0_PROD__Duplicating_Distributor_-ProvisionedCapacityLow-df08a948-94a4-4fb1-961b-098e7c57cffa
+      Alarm Actions: ['arn:aws:autoscaling:us-east-1:497021971364:scalingPolicy:a4780944-caba-4520-9356-2b70af46aae5:resource/dynamodb/table/_SparkElt2.0_PROD__Duplicating_Distributor_:policyName/DynamoDBWriteCapacityUtilization:table/_SparkElt2.0_PROD__Duplicating_Distributor_']
+
+Alarm name: _SparkElt2.0_PROD__Distributor_-ReadCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: _SparkElt2.0_PROD__Distributor_-WriteCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: awseb-e-hsczf86dh3-stack-AWSEBCloudwatchAlarmHigh-FAYzU2hL0Mkl
+      Alarm Actions: ['arn:aws:autoscaling:us-east-1:497021971364:scalingPolicy:6643e20e-06ca-419a-ad15-5b4afb2b4488:autoScalingGroupName/awseb-e-hsczf86dh3-stack-AWSEBAutoScalingGroup-f2ECNZHuRkbm:policyName/awseb-e-hsczf86dh3-stack-AWSEBAutoScalingScaleUpPolicy-rkDl0c6zJeAJ']
+
+Alarm name: awseb-e-hsczf86dh3-stack-AWSEBCloudwatchAlarmLow-lc9S3pA82kZk
+      Alarm Actions: ['arn:aws:autoscaling:us-east-1:497021971364:scalingPolicy:6b90f2cb-daba-4477-9676-a57a6b817b1e:autoScalingGroupName/awseb-e-hsczf86dh3-stack-AWSEBAutoScalingGroup-f2ECNZHuRkbm:policyName/awseb-e-hsczf86dh3-stack-AWSEBAutoScalingScaleDownPolicy-piOeCR1YQALg']
+
+Alarm name: bastionone-autorecover
+      Alarm Actions: ['arn:aws:automate:us-east-1:ec2:recover']
+
+Alarm name: bastiontwo-autorecover
+      Alarm Actions: ['arn:aws:automate:us-east-1:ec2:recover']
+
+Alarm name: i-0028636679d10ef3c-autorecover
+      Alarm Actions: ['arn:aws:automate:us-east-1:ec2:recover']
+
+Alarm name: i-0363267c9e528530e-autorecover
+      Alarm Actions: ['arn:aws:automate:us-east-1:ec2:recover']
+
+Alarm name: i-0406b47629aed031f-autorecover
+      Alarm Actions: ['arn:aws:automate:us-east-1:ec2:recover']
+
+Alarm name: i-048aafafbc6b0a489-autorecover
+      Alarm Actions: ['arn:aws:automate:us-east-1:ec2:recover']
+
+Alarm name: i-05bd0efea81c31b3d_Status_Checks_Alarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:188894168332:NAT_Status']
+
+Alarm name: i-05bd0efea81c31b3d_Status_Checks_Alarm_auto-recovery
+      Alarm Actions: ['arn:aws:automate:us-east-1:ec2:recover']
+
+Alarm name: i-0a36dc903b00eee43-autorecover
+      Alarm Actions: ['arn:aws:automate:us-east-1:ec2:recover']
+
+Alarm name: spark-streaming-analytic-service-ReadCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: spark-streaming-analytic-service-WriteCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: spark-streaming-analytic-service-dev-ReadCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: spark-streaming-analytic-service-dev-WriteCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: spark-streaming-analytic-service-offsets-ReadCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: spark-streaming-analytic-service-offsets-WriteCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: spark-streaming-analytic-service-offsets-dev-ReadCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+
+Alarm name: spark-streaming-analytic-service-offsets-dev-WriteCapacityUnitsLimit-BasicAlarm
+      Alarm Actions: ['arn:aws:sns:us-east-1:497021971364:dynamodb']
+

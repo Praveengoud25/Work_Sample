@@ -1,0 +1,1 @@
+aws s3api list-objects-v2 --bucket ge-power-cust-prod-02242021-miss-hert-beat-temp02242021 --query 'Contents[?contains(LastModified, `2023-05-25`)].Key' >>aseet_list

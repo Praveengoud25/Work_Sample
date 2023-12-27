@@ -1,0 +1,706 @@
+{
+    "IamInstanceProfileAssociations": [
+        {
+            "AssociationId": "iip-assoc-05f6e8cd4f64dd50b",
+            "InstanceId": "i-0861cc60483bd6376",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/propel-dev-ssm-us-west-2-ssm-instance-profile",
+                "Id": "AIPAJ73B2VLAKJJKXLLZK"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0fbfaec6b01daec68",
+            "InstanceId": "i-0696111157fd0d4bb",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/ds-us-west-2-ssm-instance-profile",
+                "Id": "AIPAI7RPRZJ2H4KRM6FYU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-084c045502d9b5368",
+            "InstanceId": "i-0bb8b0f4e87aaca7d",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-provisioner",
+                "Id": "AIPAJGXP3HPCBG5XI33RI"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-084e0566791ff9a4d",
+            "InstanceId": "i-0a12c46850b9c4f16",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-ts-time-series",
+                "Id": "AIPAIR4XUOE2DMTUOAYZO"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-038fd9d6a049ed606",
+            "InstanceId": "i-002403bd2b0f6d64d",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-ts-time-series",
+                "Id": "AIPAIR4XUOE2DMTUOAYZO"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-030fdd32aeb27f60a",
+            "InstanceId": "i-0b38bc507240a1a54",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-ts-time-series",
+                "Id": "AIPAIR4XUOE2DMTUOAYZO"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-01d624b08be909099",
+            "InstanceId": "i-01a0ad924a7eb96e8",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-ts-time-series",
+                "Id": "AIPAIR4XUOE2DMTUOAYZO"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0f6648da9eaae73ff",
+            "InstanceId": "i-09f630c474f45b168",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-015d06b2dfc984868",
+            "InstanceId": "i-0a575d1abc572529b",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/pdf-packer-server-role",
+                "Id": "AIPAJC7PGJESDBAKPE2XO"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-09f34c3da8966b655",
+            "InstanceId": "i-07a587860b1715e8d",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/om-test",
+                "Id": "AIPAIYK6IUBU5VIP55Y34"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-032035832f3a3ec3b",
+            "InstanceId": "i-0c9cca75168a86ff4",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-devi-power-af-airflow",
+                "Id": "AIPAI4Y3YRIGH23GHCFT4"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-05537a038567c9453",
+            "InstanceId": "i-0e81176909876c435",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0c4f652f3538a5ae0",
+            "InstanceId": "i-0654b4fbb3e5e7bf2",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0eb4287b1ab1f676d",
+            "InstanceId": "i-0175c64ebf8a7334c",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-af-i-genie",
+                "Id": "AIPAIUJSL2C6T6LYXYTMS"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0d97bdacb0fbd5612",
+            "InstanceId": "i-080c13cd60ea47a38",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-ts-time-series",
+                "Id": "AIPAIR4XUOE2DMTUOAYZO"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-018d4ff1c9cc39a76",
+            "InstanceId": "i-0faae77fdf9771aa5",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0fd6ba1c0d5a9aff9",
+            "InstanceId": "i-0223d5b7899363a8f",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-as-profile",
+                "Id": "AIPAQFQEXD5LXUZOJUHC5"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-07fb6bc65b1bb5759",
+            "InstanceId": "i-0f9acbfe7883ed679",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-ba-profile",
+                "Id": "AIPAQFQEXD5L5E2TH5FBM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-01d99604d24392941",
+            "InstanceId": "i-0e6610d250eba048d",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-genie-as-profile",
+                "Id": "AIPAQFQEXD5L5NB2DYNVZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0a5827040100c928a",
+            "InstanceId": "i-0f6578f3283902bb8",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-genie-as-profile",
+                "Id": "AIPAQFQEXD5L5NB2DYNVZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-07ab24a774dec7df5",
+            "InstanceId": "i-0fb4dd0afd2eb0c9f",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-00349749df8afaed4",
+            "InstanceId": "i-0d0af12ce56df4443",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-ba-profile",
+                "Id": "AIPAQFQEXD5L5E2TH5FBM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0c3afc37f36638588",
+            "InstanceId": "i-0e206917a93658d4b",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-ba-profile",
+                "Id": "AIPAQFQEXD5L5E2TH5FBM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0be6ea95ccc59f2a4",
+            "InstanceId": "i-095521e3991045aac",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-zookeeper-as-profile",
+                "Id": "AIPAQFQEXD5L2F3FMTRAZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-04cd213530fa52ec7",
+            "InstanceId": "i-00a23584ee572c447",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-zookeeper-as-profile",
+                "Id": "AIPAQFQEXD5L2F3FMTRAZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-09cd94328b597919e",
+            "InstanceId": "i-07dd2fcee04e9f35f",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/test-ssm",
+                "Id": "AIPAQFQEXD5L5MPOFIHNO"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-08aff9bf349c93807",
+            "InstanceId": "i-027d191ccf5e17903",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-05cb1762463d4326e",
+            "InstanceId": "i-0de800bd5b30470ef",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-00b1ba01b32472f22",
+            "InstanceId": "i-0721e6adce6e25ee8",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0c16e5677c981f344",
+            "InstanceId": "i-0052f40a0d00b1e0e",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-af-i-zookeeper",
+                "Id": "AIPAIK555OCBZGLWSOPNQ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-036428ba919ad27db",
+            "InstanceId": "i-04c442401f2f48665",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-ts-time-series",
+                "Id": "AIPAIR4XUOE2DMTUOAYZO"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0feabce56f5894219",
+            "InstanceId": "i-09f43a3dcd0ce4554",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-af-i-genie",
+                "Id": "AIPAIUJSL2C6T6LYXYTMS"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-06c18bf3c10b8aadb",
+            "InstanceId": "i-05890ab31d8e23a6c",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-devi-power-af-airflow",
+                "Id": "AIPAI4Y3YRIGH23GHCFT4"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-01ba7dc952531405e",
+            "InstanceId": "i-055825ff966f91a40",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-power-af-ingestion-genie-iprofile",
+                "Id": "AIPAQFQEXD5LVCGEVYOQU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0e8decea1901589ed",
+            "InstanceId": "i-0cb56e5fdc4504d68",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-devi-power-af-airflow",
+                "Id": "AIPAI4Y3YRIGH23GHCFT4"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-08db749b6fed552f7",
+            "InstanceId": "i-0d559f51614a28d84",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_maintenance_dev_green",
+                "Id": "AIPAQFQEXD5L4WZ4HO2CM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0e031370f9a871202",
+            "InstanceId": "i-094eaea5d9bb8c9e7",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_maintenance_dev_green",
+                "Id": "AIPAQFQEXD5L4WZ4HO2CM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0c7b2a44d93b75f42",
+            "InstanceId": "i-0fd01f31b05d36afb",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_ts_history_data_dev_common",
+                "Id": "AIPAQFQEXD5LZ5646SKNR"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-035ba8c589b617aa4",
+            "InstanceId": "i-02a11a76a44c56406",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_ts_history_data_dev_common",
+                "Id": "AIPAQFQEXD5LZ5646SKNR"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-003e04b0086f19e47",
+            "InstanceId": "i-017276ca715218dd0",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-batch-r1-profile",
+                "Id": "AIPAQFQEXD5LTQSIAT5SP"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-08a35d9d12f1c5323",
+            "InstanceId": "i-051c7c4dde2ee2c08",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-batch-r1-profile",
+                "Id": "AIPAQFQEXD5LTQSIAT5SP"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-09c5d674042886d71",
+            "InstanceId": "i-061d0dc71841a17f6",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-batch-r1-profile",
+                "Id": "AIPAQFQEXD5LTQSIAT5SP"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-05343f76947260da2",
+            "InstanceId": "i-0d70948c71afaf94d",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-batch-r1-profile",
+                "Id": "AIPAQFQEXD5LTQSIAT5SP"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-08bba0bfde52489bb",
+            "InstanceId": "i-024712a6cc4d0c77d",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ssm-profile",
+                "Id": "AIPAQFQEXD5LSKPQXPBCM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-032f3afc1024a4a8b",
+            "InstanceId": "i-025989520f44f656f",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_maintenance_dev_backfill-testing",
+                "Id": "AIPAQFQEXD5LXDVVYY4TF"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0514169fdda3cb134",
+            "InstanceId": "i-001b3ff45d5273cc4",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_maintenance_dev_blue",
+                "Id": "AIPAQFQEXD5LQDZWDXK4H"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-073ae2284bc9c1d35",
+            "InstanceId": "i-03a079f43ef82d4c1",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-services-blue-profile",
+                "Id": "AIPAQFQEXD5L2IQ64OTDT"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-02194102d5fb3f217",
+            "InstanceId": "i-0583323a7b6e3ac20",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-services-blue-profile",
+                "Id": "AIPAQFQEXD5L2IQ64OTDT"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0b914e918c45a1c08",
+            "InstanceId": "i-07f4fd24896f5db2f",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-services-blue-profile",
+                "Id": "AIPAQFQEXD5L2IQ64OTDT"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-08b3e185cfce4d995",
+            "InstanceId": "i-0d9d0c53530f8a128",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-services-blue-profile",
+                "Id": "AIPAQFQEXD5L2IQ64OTDT"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0a7a6d92e4d8c63ed",
+            "InstanceId": "i-0b219e1c702c096f7",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-services-blue-profile",
+                "Id": "AIPAQFQEXD5L2IQ64OTDT"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-001ae9782aedf9382",
+            "InstanceId": "i-013f1c50d20600e39",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-batch-blue-profile",
+                "Id": "AIPAQFQEXD5LYSITDSREF"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0542f7faed9c27f14",
+            "InstanceId": "i-08b037bc645ac264e",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-batch-blue-profile",
+                "Id": "AIPAQFQEXD5LYSITDSREF"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0f0f7a041f18e8785",
+            "InstanceId": "i-05e095098b56f4e92",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-batch-blue-profile",
+                "Id": "AIPAQFQEXD5LYSITDSREF"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0f48b55b25f082457",
+            "InstanceId": "i-0143ff1b1075636f5",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-03b78ec60b8b263cf",
+            "InstanceId": "i-07dcc580a2ea3fe12",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/XLD-terraform",
+                "Id": "AIPAQFQEXD5LVMGQEUR4U"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0172839d30c573270",
+            "InstanceId": "i-07b298bacc79ae749",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-services-blue-profile",
+                "Id": "AIPAQFQEXD5L2IQ64OTDT"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-041801439725138e9",
+            "InstanceId": "i-003588b2b1a24ffb9",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-devi-power-af-airflow",
+                "Id": "AIPAI4Y3YRIGH23GHCFT4"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-01aa98ac41c99554d",
+            "InstanceId": "i-0cfd8e2d031754cba",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-as-profile",
+                "Id": "AIPAQFQEXD5LXUZOJUHC5"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0eac8cd5ff8a05ba9",
+            "InstanceId": "i-0df5fd12a5eefb31a",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-as-profile",
+                "Id": "AIPAQFQEXD5LXUZOJUHC5"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-07f18351895fe7736",
+            "InstanceId": "i-05f2c5eea961e468e",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-services-blue-profile",
+                "Id": "AIPAQFQEXD5L2IQ64OTDT"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0d81725efead12e9b",
+            "InstanceId": "i-00fa6d17004ea3bab",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/XLD-terraform",
+                "Id": "AIPAQFQEXD5LVMGQEUR4U"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0dc59c6439504b0cf",
+            "InstanceId": "i-0f27cbe67f0e30f1c",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_maintenance_dev_blue",
+                "Id": "AIPAQFQEXD5LQDZWDXK4H"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0f6bd5af5349163d6",
+            "InstanceId": "i-03d63f3c95901ae33",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_maintenance_dev_backfill-testing",
+                "Id": "AIPAQFQEXD5LXDVVYY4TF"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0b4907815989222b7",
+            "InstanceId": "i-048d21774fe6c0f65",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/emr_maintenance_dev_backfill-testing",
+                "Id": "AIPAQFQEXD5LXDVVYY4TF"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0b27f64652e852d20",
+            "InstanceId": "i-04fd0e57d115884b2",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-genie-as-profile",
+                "Id": "AIPAQFQEXD5L5NB2DYNVZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-02db5dca11df25866",
+            "InstanceId": "i-0f85e1c8e0fbb507b",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-services-blue-profile",
+                "Id": "AIPAQFQEXD5L2IQ64OTDT"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0d255979eb6a52897",
+            "InstanceId": "i-084399565598f2df3",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-ba-profile",
+                "Id": "AIPAQFQEXD5L5E2TH5FBM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-08d62993dcddc6a0e",
+            "InstanceId": "i-09e38ad824b633761",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-ba-profile",
+                "Id": "AIPAQFQEXD5L5E2TH5FBM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0ce5456b29f680577",
+            "InstanceId": "i-0a3a32330c38df248",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-af-ba-profile",
+                "Id": "AIPAQFQEXD5L5E2TH5FBM"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-040859e2dbb131ca9",
+            "InstanceId": "i-0f8321db96cd10626",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-zookeeper-as-profile",
+                "Id": "AIPAQFQEXD5L2F3FMTRAZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0f97c9803e712e568",
+            "InstanceId": "i-05b7c1275de752cab",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-zookeeper-as-profile",
+                "Id": "AIPAQFQEXD5L2F3FMTRAZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-07aa3dcc224013f33",
+            "InstanceId": "i-0fd4bfae3f2654899",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-zookeeper-as-profile",
+                "Id": "AIPAQFQEXD5L2F3FMTRAZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-07e6f24005d7cbd20",
+            "InstanceId": "i-0daeb1ea772c631bd",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-zookeeper-as-profile",
+                "Id": "AIPAQFQEXD5L2F3FMTRAZ"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0b850f083758195d6",
+            "InstanceId": "i-00f4daa3268157cd5",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-emr-analytic-batch-blue-profile",
+                "Id": "AIPAQFQEXD5LYSITDSREF"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0f05b798fadbe723b",
+            "InstanceId": "i-0c364cecb5cc2289f",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/aws-elasticbeanstalk-ec2-role",
+                "Id": "AIPAJ6WGSYGXDWVBRRSWK"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0d35794ffb635ea3d",
+            "InstanceId": "i-0c42039afdda99279",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        },
+        {
+            "AssociationId": "iip-assoc-0e24f0d4f625a83f1",
+            "InstanceId": "i-0382bb74dcfc4a7b0",
+            "IamInstanceProfile": {
+                "Arn": "arn:aws:iam::011821064023:instance-profile/usw02-dev-pwr-ts-om-ars-profile",
+                "Id": "AIPAIPUCXIRU33LIYRBGU"
+            },
+            "State": "associated"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+set http_proxy=http://PITC-Zscaler-Americas-Alpharetta3PR.proxy.corporate.ge.com:80
+set https_proxy=http://PITC-Zscaler-Americas-Alpharetta3PR.proxy.corporate.ge.com:80
+
+Prod-Ds , Prod-Ds-Ext(Pre_prod) , Dev , and Prod As 
+
+277651853236_mnd-l3-support-role
+011821064023_mnd-l3-support-role dev
+497021971364_mnd-l3-support-role
+436012210803_mnd-l3-support-role
+867396380247_mnd-l3-support-role  prod-ds
+229148303449_mnd-l3-support-role
+
+aws s3 ls --profile 011821064023_mnd-l3-support-role --no-verify-ssl > ls.json 
+
+gossamer3 bulk-login mnd-l3-support-role.yml
+
+aws s3 ls s3: --profile 436012210803_mnd-l3-support-role --no-verify-ssl
+aws sts get-caller-identity --profile predix-core
+
+aws s3 ls --no-verify-ssl  --profile 436012210803_mnd-l3-support-role > Ing_ext.csv
+
+aws --profile 867396380247_mnd-l3-support-role s3api list-buckets --query "Buckets[].Name" >Devbuckets.csv --no-verify-ssl
+
+--profile 011821064023_mnd-l3-support-role
+
+--no-verify-ssl 
+
+--human-readable --summarize
+
+get-bucket-policy
+
+get-bucket-lifecycle
+========================
+aws --profile 867396380247_mnd-l3-support-role --noverify-ssl s3api list-buckets --query "Buckets[].Name" > prod_dsbuckets.txt
+
+aws --profile 867396380247_mnd-l3-support-role s3api get-bucket-policy --bucket prod_dsbuckets.json --query Policy --output text > Proddspolicy.json
+
+aws s3 ls --profile mnd_profilename  --no-verify-ssl
+
+aws s3api get-bucket-policy --bucket Bucket_name --profile mnd_profilename  
+
+aws s3api get-bucket-lifecyle --bucket Bucket_name --profile mnd_profilename  
+
+
+aws s3api get-bucket-policy --bucket  --profile 277651853236_mnd-l3-support-role
