@@ -1,0 +1,149 @@
+#!/bin/bash
+
+echo "Install ssm agent" > log.txt
+chmod 777 log.txt
+#yum -y install https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+
+echo "installing Postgres " >> log.txt
+
+yum -y install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs
+wait
+
+DIR=data
+
+if grep -qs '/data' /proc/mounts; then
+    echo "Found /data mounted."
+    DIR=data
+    export DIR=data
+elif grep -qs '/mnt1' /proc/mounts; then
+    echo "Found /mnt1 mounted"
+    DIR=mnt1
+    export DIR=mnt1
+elif grep -qs '/mnt' /proc/mounts; then
+    echo "Found /mnt mounted"
+    DIR=mnt
+    export DIR=mnt
+else
+    echo "No Mount Found" >> log.txt
+    exit 1
+fi
+
+echo "================Intialing PHHD Setup========================" >> log.txt
+
+NAMENODE_HOST=REPLACE_IT_WITH_MASTER_IP_OF_CLUSTER
+DCI_HOST=$(hostname -f)
+YEAR=2011
+adduser phhd
+
+su hdfs <<'EOF'
+hdfs dfs -mkdir /user/phhd
+hadoop fs -mkdir /PHHD/
+hadoop fs -chown phhd:phhd /PHHD/
+EOF
+echo "Done with user creation process" >> log.txt
+echo "creating HDFS directory Complete" >> log.txt
+
+echo "HDFS directory structure"
+hdfs dfs -ls / >> log.txt
+#Setup PHHD
+
+ln -s /$DIR/phhd/PHHD_Tomcat /var/PHHD_Tomcat
+ln -s /$DIR/phhd/PDS_Tomcat /var/PDS_Tomcat
+ln -s /$DIR/phhd/DataScienceCLIENT /var/DataScienceCLIENT
+
+ls -ltr /var/PHHD_Tomcat >> log.txt
+ls -ltr /var/DataScienceCLIENT >> log.txt
+
+chmod 777 /$DIR
+cd /$DIR
+
+su phhd <<'EOF'
+mkdir /$DIR/phhd
+hadoop fs -copyToLocal s3a://ge-engineering/vamsheetest/2TomcatSetup/* /$DIR/phhd
+cd /$DIR/phhd
+unzip DataScienceCLIENT_06042017.zip
+unzip PDS_Tomcat_04062017.zip
+unzip PHHD_Tomcat_04062017.zip
+hdfs dfs -setrep -R 3 /PHHD
+cd /var/PHHD_Tomcat/apache-tomcat-7.0.70/PHHD/
+rm -f *.xml
+ln -s /etc/hadoop/conf/yarn-site.xml yarn-site.xml
+ln -s /etc/hadoop/conf/core-site.xml core-site.xml
+ln -s /etc/hadoop/conf/mapred-site.xml mapred-site.xml
+ln -s /etc/hadoop/conf/hdfs-site.xml hdfs-site.xml
+cd /var/PDS_Tomcat/apache-tomcat-7.0.70/appProps/
+rm -f *.xml
+ln -s /etc/hadoop/conf/yarn-site.xml yarn-site.xml
+ln -s /etc/hadoop/conf/core-site.xml core-site.xml
+ln -s /etc/hadoop/conf/mapred-site.xml mapred-site.xml
+ln -s /etc/hadoop/conf/hdfs-site.xml hdfs-site.xml
+EOF
+echo "PHHD and DataScienceCLIENT setup Complete" >> log.txt
+
+cp /var/PHHD_Tomcat/apache-tomcat-7.0.70/PHHD/eh.ini /var/PHHD_Tomcat/apache-tomcat-7.0.70/PHHD/eh.ini_$date
+
+sed -ie "s/ip-10-228-147-188.ec2.internal/$NAMENODE_HOST/g" /var/PHHD_Tomcat/apache-tomcat-7.0.70/PHHD/eh.ini
+
+sed -ie "s/10.228.147.188/$NAMENODE_HOST/g" /var/PHHD_Tomcat/apache-tomcat-7.0.70/PHHD/eh.ini
+
+sed -ie "s/10.228.147.72/$DCI_HOST/g" /var/PHHD_Tomcat/apache-tomcat-7.0.70/PHHD/eh.ini
+
+cp /var/PDS_Tomcat/apache-tomcat-7.0.70/appProps/db.properties /var/PDS_Tomcat/apache-tomcat-7.0.70/appProps/db.properties_$date
+
+sed -ie "s/10.228.147.220/$DCI_HOST/g" /var/PDS_Tomcat/apache-tomcat-7.0.70/appProps/db.properties
+
+sed -ie "s/ip-10-228-147-78.ec2.internal/$NAMENODE_HOST/g" /var/PDS_Tomcat/apache-tomcat-7.0.70/appProps/db.properties
+
+cp /var/DataScienceCLIENT/app.properties /var/DataScienceCLIENT/app.properties_Date
+
+sed -ie "s/PHHD_Parquet_Gen/PHHD_Parquet_Gen_$YEAR/g" /var/DataScienceCLIENT/app.properties
+
+sed -ie "s/Merge_Parquet/Merge_Parquet_$YEAR/g" /var/DataScienceCLIENT/app.properties
+
+sed -ie "s/PHHD_Error/PHHD_Error_$YEAR/g" /var/DataScienceCLIENT/app.properties
+
+echo "=========================Done with PHHD setup===========================" >> log.txt
+
+echo "=========================intializing DCI setup==========================" >> log.txt
+
+postgresql-setup initdb >> log.txt
+mkdir /$DIR/postgresql/
+mv /var/lib/pgsql/data /$DIR/postgresql/
+ln -s /$DIR/postgresql/data /var/lib/pgsql/data
+mkdir /$DIR/dumptmp
+chmod 777 /$DIR/dumptmp/
+rm -rf /$DIR/dumptmp/pwp_dci_latest.*
+hadoop fs -copyToLocal s3://dev-pd-inbound/database/pwp_dci_master_75.dump /$DIR/dumptmp/
+#wget https://s3.amazonaws.com/dci-phhd-setup-files/postgresql.conf
+aws s3 cp s3://dci-phhd-setup-files/postgresql.conf .
+mv postgresql.conf /var/lib/pgsql/data
+#wget https://s3.amazonaws.com/dci-phhd-setup-files/pg_hba.conf
+aws s3 cp s3://dci-phhd-setup-files/pg_hba.conf .
+mv pg_hba.conf /var/lib/pgsql/data/
+
+echo "adding postgres and gpadmin users" >> log.txt
+
+adduser postgres
+adduser gpadmin
+
+service postgresql start
+wait
+if ps ax | grep -v grep | grep postgres > /dev/null
+then
+    echo "Postgres service running, everything is fine"
+else
+    echo "Postgres is not running"
+    exit 1
+fi
+su postgres <<'EOF'
+echo $DIR >> log.txt
+psql -c "CREATE USER pguser SUPERUSER PASSWORD 'P0wer5ervic3s';"
+psql -c "CREATE USER gpadmin WITH PASSWORD 'gpadmin';"
+psql -c  "create database pwp_dci;"
+pg_restore -d pwp_dci /$DIR/dumptmp/pwp_dci_master_75.dump &
+wait
+psql -d pwp_dci  -c "GRANT ALL ON SCHEMA dci TO pguser;"
+psql -d pwp_dci  -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA dci TO pguser;"
+EOF
+
+rm -rf /$DIR/dumptmp/pwp_dci_*

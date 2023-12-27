@@ -1,0 +1,3 @@
+#Dec-2020 to Nov-2021
+#! /bin/bash
+./copyscript.sh 2020 11; ./copyscript.sh 2020 12 ; ./copyscript.sh 2021 01 ; ./copyscript.sh 2021 02 ; ./copyscript.sh 2021 03 ; ./copyscript.sh 2021 04 ; ./copyscript.sh 2021 05 ; ./copyscript.sh 2021 06 ; ./copyscript.sh 2021 07 ; ./copyscript.sh 2021 08 ; ./copyscript.sh 2021 09 ; ./copyscript.sh 2021 10 ; ./copyscript.sh 2021 11 ; ./copyscript.sh 2021 12 ;

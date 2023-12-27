@@ -1,0 +1,44 @@
+
+dev : https://airflow-as-live.dev.gepowerpredix.com/home
+
+preprod : https://airflow-as-live.stage.predixdatafabric.com/home
+
+prod-AS : https://airflow-as-live.stagedatafabric.com/home
+
+for now I will share viewer login for all above and later will give other logins
+
+dev viewer : 
+
+   user name = viewer
+
+   password = viewer
+
+dev user : 
+
+   user name = user
+
+   password = UsEr
+
+preprod viewer : 
+
+   user name = viewer
+
+   password = viewer
+
+preprod user : 
+
+   user name = user
+
+   password = MndUs3r
+
+prod-as viewer : 
+
+   user name = viewer
+
+   password = viewer
+
+prod-as user : 
+
+   user name = user
+
+   password = MndUs3r

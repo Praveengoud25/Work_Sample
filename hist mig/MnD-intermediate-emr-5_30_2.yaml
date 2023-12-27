@@ -1,0 +1,149 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: EMR Cluster for Ingestion into Hive
+Parameters:
+  EMRClusterName:
+    Description: Name of the cluster
+    Type: String
+    Default: MnD-SOCO-2022
+  KeyName:
+    Description: Must be an existing Keyname
+    Type: String
+    Default: EMR-power-services
+  MasterInstanceType:
+    Description: Instance type to be used for the master instance.
+    Type: String
+    Default: m5.12xlarge
+  CoreInstanceType:
+    Description: Instance type to be used for core instances.
+    Type: String
+    Default: d2.4xlarge
+  NumberOfCoreInstances:
+    Description: Must be a valid number
+    Type: Number
+    Default: 6
+  TaskInstanceType:
+    Description: Instance type to be used for task instances.
+    Type: String
+    Default: r5d.24xlarge
+  NumberOfTaskInstances:
+    Description: Must be a valid number
+    Type: Number
+    Default: 0
+  SubnetID:
+    Description: Must be Valid public subnet ID 
+    Default: subnet-d61d34a0
+    Type: String
+  AdditionalMasterSecurityGroups:
+    Default: 'sg-29398352,sg-2c914c56'
+    Type: CommaDelimitedList
+  LogUri:
+    Description: Must be a valid S3 URL for logging
+    Default: 's3://aws-logs-564772463473-us-east-1/elasticmapreduce/'
+    Type: String
+  S3DataUri:
+    Description: Must be a valid S3 bucket URL for bootstrap script
+    Default: 's3://ge-engineering/'
+    Type: String
+  ReleaseLabel:
+    Description: Must be a valid EMR release  version
+    Default: emr-5.30.2
+    Type: String
+  env:
+    Description: Type of environment - dev or prd
+    Default: prd
+    Type: String
+  Name:
+    Description: Name of the instance
+    Default: MnD-Intermediate
+    Type: String
+  uai:
+    Description: The uai value
+    Default: UAI2005971
+    Type: String
+  role:
+    Description: InstanceProfile role
+    Default: hadoop-dev-app
+    Type: String
+Mappings: {}
+Resources:
+  EMRCluster:
+    Type: 'AWS::EMR::Cluster'
+    Properties:
+      Applications:
+        - Name: Hadoop
+        - Name: Hive
+        - Name: Spark
+        - Name: Ganglia
+        - Name: Tez
+        - Name: ZooKeeper
+      Configurations:
+        - Classification: hadoop-env
+          Configurations:
+            - Classification: export
+              ConfigurationProperties:
+                HADOOP_NAMENODE_HEAPSIZE: '25190'
+        - Classification: hdfs-site
+          ConfigurationProperties:
+            dfs.datanode.max.transfer.threads: '10000'
+      Instances:
+        Ec2KeyName: !Ref KeyName
+        Ec2SubnetId: !Ref SubnetID
+        AdditionalMasterSecurityGroups: !Ref AdditionalMasterSecurityGroups
+        MasterInstanceGroup:
+          EbsConfiguration:
+            EbsBlockDeviceConfigs:
+              - VolumeSpecification:
+                  SizeInGB: 200
+                  VolumeType: gp2
+                VolumesPerInstance: 1
+            EbsOptimized: 'true'
+          InstanceCount: 1
+          InstanceType: !Ref MasterInstanceType
+          Market: ON_DEMAND
+          Name: Master
+        CoreInstanceGroup:
+          EbsConfiguration:
+            EbsBlockDeviceConfigs:
+              - VolumeSpecification:
+                  SizeInGB: 200
+                  VolumeType: gp2
+                VolumesPerInstance: 1
+            EbsOptimized: 'true'
+          InstanceCount: !Ref NumberOfCoreInstances
+          InstanceType: !Ref CoreInstanceType
+          Market: ON_DEMAND
+          Name: Core
+        TerminationProtected: false
+      VisibleToAllUsers: true
+      JobFlowRole: !Ref role
+      ReleaseLabel: !Ref ReleaseLabel
+      LogUri: !Ref LogUri
+      Name: !Ref EMRClusterName
+      BootstrapActions:
+        - Name: Log4J-Remediation
+          ScriptBootstrapAction:
+            Path: 's3://ge-engineering/powerservices-setup/mnd-prd/scripts/patch-log4j-emr-5.30.2-v1.sh'
+        - Name: Install Users
+          ScriptBootstrapAction:
+            Path: 's3://ge-engineering/powerservices-setup/mnd-prd/scripts/exe-user.sh'
+        - Name: ssm agent
+          ScriptBootstrapAction:
+            Path: 's3://ge-engineering/powerservices-setup/mnd-prd/scripts/emr-ssm-agent.sh'
+      ServiceRole: EMR_DefaultRole
+      Tags:
+        - Key: env
+          Value: !Ref env
+        - Key: Name
+          Value: !Ref Name
+        - Key: uai
+          Value: !Ref uai    
+  EMRTaskNodes:
+    Type: 'AWS::EMR::InstanceGroupConfig'
+    Properties:
+      InstanceCount: !Ref NumberOfTaskInstances
+      InstanceType: !Ref TaskInstanceType
+      InstanceRole: TASK
+      Market: ON_DEMAND
+      Name: TaskInstance
+      JobFlowId: !Ref EMRCluster
+Outputs: {}

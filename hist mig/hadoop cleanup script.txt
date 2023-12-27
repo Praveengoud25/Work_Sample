@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "`date +%Y-%m-%d_%H-%M-%S`  :  Started Cleanup Cron Jobs"
+
+echo "Current User is $(whoami)"
+
+sudo -i -u hadoop  bash <<-'EOF'
+
+echo "Current User is $(whoami)"
+
+export HADOOP_CLIENT_OPTS="-Xmx6g"
+
+        for x in `hdfs dfs -ls /var/log/spark/apps/ | awk '!/inprogress/{print $8}'`; do
+		echo "Deleting $x--> "
+           hdfs dfs -rm -r -skipTrash $x
+        done
+
+        for x in `hdfs dfs -ls /var/log/hadoop-yarn/apps/phhd/logs-tfile/ | awk '!/inprogress/{print $8}'`; do
+           echo Deleting $x
+           hdfs dfs -rm -r -skipTrash $x;
+        done
+
+EOF

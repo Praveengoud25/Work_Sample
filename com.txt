@@ -1,0 +1,198 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyNonSecureOperation",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ],
+            "Condition": {
+                "Bool": {
+                    "aws:SecureTransport": "false"
+                }
+            }
+        },
+        {
+            "Sid": "DenyNonEncrytedUpload",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ],
+            "Condition": {
+                "Null": {
+                    "s3:x-amz-server-side-encryption": "true"
+                },
+                "StringNotEquals": {
+                    "s3:x-amz-server-side-encryption": "aws:kms"
+                }
+            }
+        },
+        {
+            "Sid": "RestrictAccessToAnalyticVPC",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ],
+            "Condition": {
+                "StringNotLike": {
+                    "AWS:UserId": [
+                        "011821064023",
+                        "AROAIUPXMIRJFZYDR3SB6:*",
+                        "AROAJE6PKDXFI3DTPZNBA:*",
+                        "AROAQFQEXD5LY53J3EGO2:*",
+                        "AROA4T5G2MZLZ2XOOFUJT:*",
+                        "AROAQFQEXD5L636JRZXWS:*",
+                        "AROAQFQEXD5LRDOIBQWQG:*",
+                        "AROAQFQEXD5LQPZ7NJSDM:*",
+                        "AROAJVQGLYBHCBPMAMTS2:*"
+                    ]
+                },
+                "StringNotEquals": {
+                    "aws:sourceVpc": [
+                        "vpc-879be0e0",
+                        "vpc-0454f60f895c72ab5"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "RestrictS3AccessForEMRCluster",
+            "Effect": "Deny",
+            "Principal": "*",
+            "NotAction": [
+                "s3:List*",
+                "s3:GetObject*",
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:AbortMultipartUpload",
+                "s3:DeleteObject",
+                "s3:PutBucketPolicy"
+            ],
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ],
+            "Condition": {
+                "StringNotLike": {
+                    "AWS:UserId": [
+                        "011821064023",
+                        "AROAIUPXMIRJFZYDR3SB6:*",
+                        "AROAJE6PKDXFI3DTPZNBA:*",
+                        "AROAQFQEXD5LY53J3EGO2:*",
+                        "AROA4T5G2MZLZ2XOOFUJT:*",
+                        "AROAQFQEXD5L636JRZXWS:*",
+                        "AROAQFQEXD5LRDOIBQWQG:*",
+                        "AROAQFQEXD5LQPZ7NJSDM:*",
+                        "AROAJVQGLYBHCBPMAMTS2:*"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "GrantAccessToPredixSuperAdmin",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::011821064023:role/predix-super-admin"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ]
+        },
+        {
+            "Sid": "GrantAccessToLambdaCompaction",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::011821064023:role/compaction-serverless-lamda-role",
+                    "arn:aws:iam::011821064023:role/emr-dev-green-usw02-maintenance-role",
+                    "arn:aws:iam::011821064023:role/compaction-serverless-dev-ds-lamda-role"
+                ]
+            },
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:GetObject*",
+                "s3:List*",
+                "s3:PutObjectAcl",
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ]
+        },
+        {
+            "Sid": "GrantAccessToTerraformRole",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::011821064023:role/terraform-admin"
+            },
+            "Action": [
+                "s3:PutBucketPolicy",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ]
+        },
+        {
+            "Sid": "GrantProdMaintenanceEmrAccessToDevBucket",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::867396380247:role/time-series-pr_blue"
+            },
+            "Action": [
+                "s3:PutObject",
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ]
+        },
+        {
+            "Sid": "GrantAccessToTimeseriesTestEMR",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::011821064023:role/time-series-dev_common"
+            },
+            "Action": [
+                "s3:GetObject*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ]
+        },
+        {
+            "Sid": "GrantAccessToBatchEMR",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::011821064023:role/usw02-dev-pwr-emr-analytic-batch-blue-role"
+            },
+            "Action": [
+                "s3:GetObject*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless",
+                "arn:aws:s3:::usw02-dev-pwr-s3-intermittent-compaction-serveless/*"
+            ]
+        }
+    ]
+}

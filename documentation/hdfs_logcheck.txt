@@ -1,0 +1,79 @@
+yarn application -list
+
+hdfs dfs -df -h /
+
+hdfs dfs -du -h  /
+
+hdfs dfs -ls /
+
+hdfs dfs -cat 
+
+hdfs dfs -du -h /var/log/hadoop-yarn/apps/hadoop/logs/application_1652510046331_42111
+[hadoop@ip-10-171-12-254 mnt]$ hdfs dfs -du -h  /var/log/hadoop-yarn/apps/hadoop/logs/application_1652510046331_42110
+194.2 M  /var/log/hadoop-yarn/apps/hadoop/logs/application_1652510046331_42110/ip-10-171-12-143.us-west-2.compute.internal_8041
+12.1 K   /var/log/hadoop-yarn/apps/hadoop/logs/application_1652510046331_42110/ip-10-171-12-182.us-west-2.compute.internal_8041
+199.4 M  /var/log/hadoop-yarn/apps/hadoop/logs/application_1652510046331_42110/ip-10-171-12-19.us-west-2.compute.internal_8041
+194.5 M  /var/log/hadoop-yarn/apps/hadoop/logs/application_1652510046331_42110/ip-10-171-12-24.us-west-2.compute.internal_8041
+196.6 M  /var/log/hadoop-yarn/apps/hadoop/logs/application_1652510046331_42110/ip-10-171-12-41.us-west-2.compute.internal_8041
+
+hdfs dfs -cat /var/log/hadoop-yarn/apps/hadoop/logs/application_1652510046331_42110/ip-10-171-12-143.us-west-2.compute.internal_8041
+
+
+/var/log/hadoop-yarn   local logs
+/var/log/hadoop-mapreduce 
+
+
+
+================================
+ingestionemr
+http://ip-10-171-1-19.us-west-2.compute.internal:8042/node/allContainers
+
+container_1644623772937_0375_01_000107
+
+hdfs dfs -cat  /user/hadoop/.sparkStaging/application_1644623772937_0375/app.properties
+
+
+[hadoop@ip-10-171-1-149 log]$ hdfs dfs -du -h  /user/hadoop/.sparkStaging
+213.6 M  /user/hadoop/.sparkStaging/application_1644623772937_0205
+216.1 M  /user/hadoop/.sparkStaging/application_1644623772937_0210
+204.3 M  /user/hadoop/.sparkStaging/application_1644623772937_0375
+
+
+#spark realtime-streaming-service
+[hadoop@ip-10-171-1-149 log]$ hdfs dfs -du -h  /user/hadoop/.sparkStaging/application_1644623772937_0210
+193.3 K  /user/hadoop/.sparkStaging/application_1644623772937_0210/__spark_conf__.zip
+204.1 M  /user/hadoop/.sparkStaging/application_1644623772937_0210/__spark_libs__7107889754985111069.zip
+851      /user/hadoop/.sparkStaging/application_1644623772937_0210/log4j-driver.properties
+1.7 K    /user/hadoop/.sparkStaging/application_1644623772937_0210/log4j-executor.properties
+11.8 M   /user/hadoop/.sparkStaging/application_1644623772937_0210/spark-realtime-streaming-service-1.0.0-fat.jar
+
+
+#spark analytics
+#/var/log/hadoop-yarn/apps/hadoop/logs/application_1644623772937_0375
+[hadoop@ip-10-171-1-149 log]$ hdfs dfs -du -h  /user/hadoop/.sparkStaging/application_1644623772937_0375
+193.4 K  /user/hadoop/.sparkStaging/application_1644623772937_0375/__spark_conf__.zip
+204.1 M  /user/hadoop/.sparkStaging/application_1644623772937_0375/__spark_libs__2544699116648595282.zip
+2.9 K    /user/hadoop/.sparkStaging/application_1644623772937_0375/app.properties
+851      /user/hadoop/.sparkStaging/application_1644623772937_0375/log4j-driver.properties
+1.7 K    /user/hadoop/.sparkStaging/application_1644623772937_0375/log4j-executor.properties
+13.6 K   /user/hadoop/.sparkStaging/application_1644623772937_0375/mappings-config.json
+
+
+=============
+cd /etc/hadoop/conf
+ls
+cat hdfs-site.xml
+cat hdfs-site.xml | grep dfs.replication
+vi  hdfs-site.xml
+cat hdfs-site.xml
+cd /emr/instance-controller/log/
+ls
+ll
+ls  
+instance-controller.log
+ls  instance-controller.log*
+cat instance-controller.log
+cat instance-controller.log | grep InstanceJointStatusMap
+
+hadoop dfsadmin -report
+

@@ -1,0 +1,36 @@
+ prod-ds -- s3 buket usw02-pr-pwr-s3-aurora-timeseries  --spark-streaming-analytic-service --timeseries-data/
+ 
+ 10.171.12.63
+ ssh hadoop@10.171.1.149
+ 
+ mysql -u aurora_ts -pYXVyb3JhLnRpbWVzZXJpZXMucHJvZA== -h usw02-prod-power-rds-aurora-timeseries-enc-cluster-one.cluster-ro-c2lok6xwg129.us-west-2.rds.amazonaws.com
+ 
+ show databases;
+ 
+ use ts_shards;
+ 
+ select * from shards limit 10;
+ 
+ select * from shards where shard_key= "875101";
+ 
+ select * from shard_db_mappings where shard_id= "3001";
+ 
+ select * from shard_db_mappings where db_id= "301";
+ 
+ sourecetype=spark:metric index=us_west_prod_power_platform SUBSCRIPTION_ANALYTIC_EVENT_METRIC 298236
+ 
+ 
+ https://www.informit.com/articles/article.aspx?p=30875&seqNum=4
+ 
+ SELECT table_schema "mysql",
+        ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" 
+FROM information_schema.tables ;
+GROUP BY table_schema; 
+
+10.170.1.112
+mysql -h usw02-dev-pwr-rds-aurora-analytic-execution-status-cluster.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -D PWR_DATAFABRIC -u analytic_status -pyR9QSUfkHtchpGw9VymRALhz
+
+mysql -u analytic_status -pyR9QSUfkHtchpGw9VymRALhz -h usw02-dev-pwr-rds-aurora-analytic-execution-status-cluster.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com
+
+
+mysql -u analytic_status -pyR9QSUfkHtchpGw9VymRALhz -h  dev-aurora-emrtshistorical.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com

@@ -1,0 +1,19 @@
+Time taken for each step
+
+Major actions:
+Stopping compaction service : Ashish
+Deploying New RDS : Dj
+Validating current Tables structure and volume. 15 mins.
+Pulling Dump. Here : 5 mins.
+In new RDS create new database. 
+Applying dump to New rds for Db. HERE
+Validating the tables structure and volume. 15 mins.
+Test auto increment by inserting records. 14 mins.
+Starting Compaction services : Ashish
+checking for new row of data in rds: Ashish
+
+1:15 mintues
+
+
+Tabluer cloumn
+reviwers. Ashish / 

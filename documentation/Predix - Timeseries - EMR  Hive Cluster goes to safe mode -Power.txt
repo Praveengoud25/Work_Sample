@@ -1,0 +1,1375 @@
+ 531  clear
+  532  cd /emr/apppusher/ytsdata
+  533  ls -ltrh
+  534  cd /emr/instance-controller/log/bootstrap-actions
+  535  ls -ltrh
+  536  cd 1
+  537  ls -ltrh
+  538  cd ..
+  539  ls -ltrh
+  540  grep -i exception master.log
+  541  ccd /mnt/var/log/hadoop-state-pusher
+  542  cd /mnt/var/log/hadoop-state-pusher
+  543   ls -ltrh
+  544  free -m
+  545  df -h
+  546  sudo systemctl stop logpusher
+  547  sudo systemctl start logpusher
+  548  grep -i exception logpusher.log
+  549  sudo systemctl status logpusher
+  550  cd /emr/logpusher/log
+  551  ls -ltrh
+  552  grep -i exception logpusher.log
+  553  sudo systemctl status hive-server2
+  554  sudo systemctl stop hive-server2
+  555  sudo systemctl status hive-server2
+  556  sudo systemctl start hive-server2
+  557  sudo systemctl status hive-server2
+  558  clear
+  559  df -h
+  560  exit
+  561  cd ~
+  562  pwd
+  563  vi .ssh/authorized_keys
+  564  cat .ssh/authorized_keys
+  565  exit
+  566  df -h
+  567  cd /var/log/hive
+  568  ls -ltrh
+  569  grep -i exception hive-server2.log
+  570  clear
+  571  grep -i UnknownHostException hive-server2.log
+  572  cd /emr
+  573  ls -ltrh
+  574  df -h
+  575  history
+  576  du -h /emr/* 2>/dev/null | grep G
+  577  cd /emr/apppusher/log
+  578  ls -ltrh
+  579  rm -rf apppusher.2022-02-18-*
+  580  rm -rf apppusher.2022-02-19-*
+  581  rm -rf apppusher.2022-02-20-*
+  582  rm -rf apppusher.2022-02-21-*
+  583  rm -rf apppusher.2022-02-22-*
+  584  rm -rf apppusher.2022-02-23-*
+  585  rm -rf apppusher.2022-02-24-*
+  586  rm -rf apppusher.2022-02-25-*
+  587  rm -rf apppusher.2022-02-26-*
+  588  rm -rf apppusher.2022-02-27-*
+  589  df -h
+  590  du -h /emr/* 2>/dev/null | grep G
+  591  DISK_USAGE=$(df -k /var/log/hadoop-yarn/ | awk '{gsub("%",""); DISK_USAGE=$5}; END {print DISK_USAGE}')
+  592  echo $DISK_USAGE
+  593  df -h
+  594  exit
+  595  cd .ssh/
+  596  ls
+  597  vi authorized_keys
+  598  exit
+  599  systemctl status hive-server2
+  600  df -h
+  601  cd /var/log/hivve
+  602  cd /var/log/hive
+  603  grep -i unknownhostexception hive-server2.log
+  604  sudo hdfs dfsadmin -safemode get
+  605  df -h
+  606  du -hs * 2>/dev/null | grep G
+  607  du -h /emr/* 2>/dev/null | grep G
+  608  cd /emr/apppusher/log
+  609  ls -ltrh
+  610  rm -rf apppusher.2022-02*
+  611  rm -rf apppusher.2022-03-01*
+  612  rm -rf apppusher.2022-03-02*
+  613  rm -rf apppusher.2022-03-03*
+  614  rm -rf apppusher.2022-03-04*
+  615  rm -rf apppusher.2022-03-05*
+  616  rm -rf apppusher.2022-03-06*
+  617  rm -rf apppusher.2022-03-07*
+  618  rm -rf apppusher.2022-03-08*
+  619  rm -rf apppusher.2022-03-09*
+  620  rm -rf apppusher.2022-03-10*
+  621  rm -rf apppusher.2022-03-1*
+  622  df -h
+  623  cd /emr/apppusher/log
+  624  du -h /emr/* 2>/dev/null | grep G
+  625  df -h
+  626  sudo hdfs dfsadmin -safemode get
+  627  sudo -u hdfs hdfs dfsadmin -safemode leave
+  628  hdfs dfsadmin -safemode get
+  629  du -h /mnt/* 2>/dev/null | grep G
+  630  cd mnt/var/log/hadoop-yarn
+  631  cd /mnt/var/log/hadoop-yarn
+  632  ls -ltrh
+  633  df -h
+  634  grep -i exception hadoop-yarn-resourcemanager-ip-10-171-10-15.log.2022-03-22-17
+  635  grep -i error hadoop-yarn-resourcemanager-ip-10-171-10-15.log.2022-03-22-17
+  636  df -h
+  637  less hadoop-yarn-resourcemanager-ip-10-171-10-15.log.2022-03-22-17
+  638  df -h
+  639  systemctl status hive-server2
+  640  tail -f /var/log/hive/hive-server2.log
+  641  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  642  df -h
+  643  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  644  exit
+  645  grep -i  "UnknownHostException" /var/log/hive/hive-server2.log
+  646  grep -i "too many open file" /var/log/hive/hive-server2.log
+  647  grep -i "Name node is in safe mode"  /var/log/hive/hive-server2.log
+  648  history
+  649  sudo systemctl status apppusher
+  650   sudo systemctl status instance-state
+  651  sudo systemctl status instance-controller
+  652  systemctl --type=service | grep -i zeppelin
+  653  systemctl --type=service
+  654  clear
+  655  crontab -l
+  656  cat /home/hadoop/cleanup.sh
+  657  cat /home/hadoop/yarn_done_logs_cleanup.sh
+  658  cat /home/hadoop/local_log_cleanup.sh
+  659  ls
+  660  df -h
+  661  cd /var/
+  662  ls
+  663  cd log
+  664  ls
+  665  cd hive
+  666  ls
+  667  grep -i "Name node is in safe mode" hive-server2.log.2022-03-20.gz
+  668  grep -i "Name node is in safe mode" hive-server2.log
+  669  cd ..
+  670  cd ~
+  671  cd /var/
+  672  ls
+  673  cd ..
+  674  cd /emr/
+  675  ls
+  676  cd ..
+  677  cat /etc/hive/conf/
+  678  cd /etc/hive/conf/
+  679  ls
+  680  cat hiveserver2-site.xml
+  681  cd ..
+  682  cd /etc/hadoop/
+  683  ls
+  684  cd conf
+  685  ls
+  686  cat yarn-site.xml
+  687  pwd
+  688  clear
+  689  cd ~
+  690  top
+  691  q!
+  692  free -m
+  693  cat /etc/hive/conf/hive-site.xml
+  694  pwd
+  695  cd /etc/hive/conf/
+  696  cat hive-env.sh
+  697  cd  /etc/hive/conf/
+  698  ls
+  699  cat parquet-logging.properties
+  700  cd /etc/hadoop/conf
+  701  pwd
+  702  ls
+  703  cd /etc/hive/conf
+  704  ls
+  705  cat cat//etc/hadoop/conf/yarn-env.sh
+  706  cat /etc/hadoop/conf/yarn-env.sh
+  707  cat /etc/hadoop/conf/yarn-site.xml
+  708  xmlFile='/etc/hadoop/conf/yarn-site.xml'
+  709  xmllint --noblanks $xmlFile | sed 's/<property>/\n<property>/g' | sed 's@<description>.*</description>@@' | sed 's@<\!--.*-->@@' | sed -r 's/10-171-9-[0-9]+/10-171-9-XX/g' | sed -r 's/10.171.9.[0-9]+/10.171.9.XX/g' | grep '<property>' | sort
+  710  /etc/logpusher/hadoop.config
+  711  vi /etc/logpusher/hadoop.config
+  712  clear
+  713  cat /etc/hadoop/conf/hdfs-site.xml
+  714  ls
+  715  pwd
+  716  /etc/hadoop/conf/hdfs-site.xml
+  717  cd /etc/hadoop/conf/hdfs-site.xml
+  718  cd /etc/hadoop/conf
+  719  ls
+  720  cd ~
+  721  clear
+  722  ls
+  723  cd hive
+  724  ls
+  725  ll
+  726  cd ..
+  727  ll
+  728  cd emrfs/
+  729  ll
+  730  cd ..
+  731  cd /etc/hadoop/
+  732  ll
+  733  cd conf
+  734  ll
+  735  vi core-site
+  736  cat core-site.xml
+  737  pwd
+  738  cd ~
+  739  clear
+  740  ll
+  741  cd emrfs
+  742  ls
+  743  cd ..
+  744  cd /usr/share/aws/emr/emrfs/conf/
+  745  ls
+  746  cat emrfs-site.xml
+  747  cd ~
+  748  cat .ssh/authorized_keys
+  749  exit
+  750  sudo hdfs dfsadmin -safemode get
+  751  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  752  df -h
+  753  cd /emr/apppusher/log
+  754  rm -rf apppusher.2022-03-22*
+  755  rm -rf apppusher.2022-03-23*
+  756  rm -rf apppusher.2022-03-24*
+  757  rm -rf apppusher.2022-03-25*
+  758  rm -rf apppusher.2022-03-26*
+  759  rm -rf apppusher.2022-03-27*
+  760  rm -rf apppusher.2022-03-28*
+  761  rm -rf apppusher.2022-03-29*
+  762  rm -rf apppusher.2022-03-30*
+  763  rm -rf apppusher.2022-03-31*
+  764  rm -rf apppusher.2022-04-01*
+  765  rm -rf apppusher.2022-04-02*
+  766  rm -rf apppusher.2022-04-03*
+  767  rm -rf apppusher.2022-04-04*
+  768  rm -rf apppusher.2022-04-05*
+  769  rm -rf apppusher.2022-04-06*
+  770  rm -rf apppusher.2022-04-07*
+  771  rm -rf apppusher.2022-04-08*
+  772  df -h
+  773  clear
+  774  df -h
+  775  clear
+  776  df -h
+  777  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  778  grep -i "Running, pool size = 165, active threads = 165, queued tasks = 100" /var/log/hive/hive-server2.log
+  779  tail -f /var/log/hive/hive-server2.log | grep -i "Running, pool size = 165, active threads = 165, queued tasks = 100"
+  780  df -h
+  781  sudo systemctl stop hive-server2.service
+  782  sudo systemctl start hive-server2.service
+  783  tail -f /var/log/hive/hive-server2.log | grep -i "Running, pool size = 165, active threads = 165, queued tasks = 100"
+  784  tail -f /var/log/hive/hive-server2.log
+  785  tail -f /var/log/hive/hive-server2.log | grep -i "Running, pool size = 165, active threads = 165, queued tasks = 100"
+  786  grep -i  "UnknownHostException" /var/log/hive/hive-server2.log
+  787  clear
+  788  systemctl status hive-server2
+  789  grep -i  "UnknownHostException" /var/log/hive/hive-server2.log
+  790  systemctl status hive-server2
+  791  df -h
+  792  df -ih
+  793  ps -u
+  794  ps -u yarn -L|wcn l
+  795  ps -u yarn -L|wc -l
+  796  /UnknownHostException
+  797  vi  /var/log/hive/hive-server2.log
+  798  free -m
+  799  cleart
+  800  clear
+  801  sudo systemctl stop hive-server2.service
+  802  sudo systemctl start hive-server2.service
+  803  systemctl status hive-server2
+  804  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  805  free -m
+  806  tail -f /var/log/hive/hive-server2.log | grep -i "UnknownHostException"
+  807  df -h
+  808  tail -f /var/log/hive/hive-server2.log | grep -i "UnknownHostException"
+  809  tail -f /var/log/hive/hive-server2.log | grep -i "Running, pool size = 165, active threads = 165, queued tasks = 100"
+  810  vi /var/log/hive/hive-server2.log
+  811  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  812  free -m
+  813  vi /var/log/hive/hive-server2.log
+  814  free -m
+  815  df -h
+  816  lsof -p
+  817  lsof
+  818  lsof | wc -l
+  819  vi /var/log/hive/hive-server2.log
+  820  df -h
+  821  grep -i "Too many open files" /var/log/hive/hive-server2.log
+  822  ls0f
+  823  lsof
+  824  lsof | wc -l
+  825  ulimit -a
+  826  history
+  827  grep -i "Running, pool size = 165, active threads = 165, queued tasks = 100" /var/log/hive/hive-server2.log
+  828  lsof
+  829  grep -i  "UnknownHostException" /var/log/hive/hive-server2.log
+  830  systemctl status hive-server2
+  831  grep -i  "UnknownHostException" /var/log/hive/hive-server2.log
+  832  cd /etc/apppusher/
+  833  ls
+  834  cat apppusher-log4j.properties
+  835  cat apppusher-log4j2.xml
+  836  cd .ssh
+  837  ls
+  838  cat authorized_keys
+  839  vi authorized_keys
+  840  cat  authorized_keys  | grep sagar
+  841  exit
+  842  grep -i  "UnknownHostException" /var/log/hive/hive-server2.log
+  843  df -h
+  844  cat apppusher-log4j2.xml
+  845  grep -i  "UnknownHostException" /var/log/hive/hive-server2.log
+  846  systemctl status hive-server2
+  847  df -h
+  848  history
+  849  df -h
+  850  df -m
+  851  df -k
+  852  cd /mnt
+  853  sudo du -sk
+  854  sudo du -sk *
+  855  cd tmp
+  856  ll
+  857  sudo du -sh * | grep G
+  858  sudo du -sh * | grep M
+  859  df -h
+  860  history
+  861  df -h
+  862  sudo su -
+  863  ls -lrth /emr/apppusher/log
+  864  df -h
+  865  df -h
+  866  sudo su -
+  867  sudo su -
+  868  watch "systemctl status apppusher.service"
+  869  sudo su -
+  870  watch "systemctl status apppusher.service"
+  871  ls -lrth /emr
+  872  df -h
+  873  ls -lrth /emr
+  874  ls -lrth /emr/apppusher/log
+  875  ls -lrth /emr/apppusher/log | wc -l
+  876  ls -lrth /emr/apppusher/log
+  877  ls -lrth /emr/apppusher/log | wc -l
+  878  ls -lrth /emr/apppusher/log
+  879  df -h
+  880  ls -lrth /emr/apppusher/log
+  881  df -h
+  882  cd /mnt
+  883  ls -lrth
+  884  ll
+  885  cd /var/log
+  886  ll
+  887  cd hadoop
+  888  ll
+  889  ls -lrth
+  890  cd ..
+  891  ls -lrth
+  892  cd hadoop-yarn/
+  893  ls -lrth
+  894  cd ..
+  895  cd hadoop-hdfs/
+  896  ll
+  897  cd ..
+  898  ll
+  899  ls -lrth tomcat/
+  900  sudo ls -lrth tomcat/
+  901  find / -name stdout
+  902  sudo find /mnt -name stdout
+  903  sudo find /mnt -name stderr
+  904  ls -lrth
+  905  pwd
+  906  ls -lrth hadoop-state-pusher/
+  907  df -h
+  908  cat /usr/bin/apppusher
+  909  df -h
+  910  ls -lrth /emr/apppusher/log
+  911  systemctl status apppusher.service
+  912  date
+  913  cat /emr/apppusher/log/apppusher.out | tail -100
+  914  cat /emr/apppusher/log/apppusher.out | tail -10
+  915  cat /emr/apppusher/log/apppusher.out | grep memory
+  916  cat -n /emr/apppusher/log/apppusher.out | grep memory
+  917  cat -n /emr/apppusher/log/apppusher.out | wc -l
+  918  cat /emr/apppusher/log/apppusher.out | tail -10
+  919  cat /emr/apppusher/log/apppusher.out | tail -1
+  920  cat /emr/apppusher/log/apppusher.out | tail -10 | head -1
+  921  cat /emr/apppusher/log/apppusher.out | tail -20 | head -1
+  922  cat /emr/apppusher/log/apppusher.out | tail -20 | head -10
+  923  systemctl status apppusher.service
+  924  ls -lrth
+  925  cd /emr/apppusher/log
+  926  ls -lrth
+  927  rm -rf apppusher.2022-04-27-21-3.log
+  928  ls -lrth
+  929  df -h
+  930  cd /emr/apppusher/log
+  931  ls -lrth
+  932  rm -rf apppusher.2022-04-30-11-1.log
+  933  ls -lrth
+  934  df -h
+  935  ls -lrth /emr
+  936  ls -lrth /emr/apppusher/ytsdata/
+  937  df -h
+  938  ls -lrth /emr
+  939  df -h /emr /mnt
+  940  find /emr -xdev -size +1000000000c -exec sudo du -sh {} \;| head -30
+  941  find /emr -xdev -size +100000000c -exec sudo du -sh {} \;| head -30
+  942  find /mnt -xdev -size +100000000c -exec sudo du -sh {} \;| head -30
+  943  sudo find /mnt -xdev -size +100000000c -exec sudo du -sh {} \;| head -30
+  944  sudo find /mnt -xdev -size +10000000c -exec sudo du -sh {} \;| head -30
+  945  sudo find /mnt -xdev -size +100000000c -exec sudo du -sh {} \;| head -30
+  946  sudo find /mnt -xdev -size +100000000c -exec sudo du -sh {} \;| head -100
+  947  df -h /emr /mnt
+  948  ls -lrth /emr
+  949  ls -lrth /emr/apppusher/log
+  950  ls -lrth /emr/apppusher/ytsdata/
+  951  df -h
+  952  ls -lrth /emr/apppusher/log/
+  953  rm -rf apppusher.2022-05-03-12-1.log
+  954  cd /emr/apppusher/log/
+  955  rm -rf apppusher.2022-05-03-12-1.log
+  956  df -h
+  957  ls -lrth /emr/apppusher/log
+  958  df -h
+  959  cd /emr/apppusher/log
+  960  ls -lrth
+  961  cd ..
+  962  sudo du -sh *
+  963  cd ytsdata/
+  964  sudo du -sh *
+  965  vi .ssh/authorized_keys
+  966  vexit
+  967  exit
+  968  clear
+  969  ssh hadoop@ip-10-171-9-223.us-west-2.compute.internal
+  970  ssh hadoop@ip-10-171-9-213.us-west-2.compute.internal
+  971  exit
+  972  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  973  exit
+  974  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  975  exit
+  976  grep -i "UnknownHostException" /var/log/hive/hive-server2.log
+  977  exit
+  978  df -h
+  979  du -hs * 2>/dev/null | grep G
+  980  sudo hdfs dfsadmin -safemode get
+  981  history
+[hadoop@ip-10-171-10-15 ~]$ history | grep clean
+  243  cat /home/hadoop/yarn_done_logs_cleanup.sh
+  253  cat /home/hadoop/yarn_done_logs_cleanup.sh
+  262  vi /home/hadoop/local_log_cleanup.sh
+  263  chmod +x /home/hadoop/local_log_cleanup.sh
+  279  vi /home/hadoop/local_log_cleanup.sh
+  334  cat /home/hadoop/local_log_cleanup.sh
+  354  cat /home/hadoop/local_log_cleanup.sh
+  421  cat /home/hadoop/local_log_cleanup.sh
+  656  cat /home/hadoop/cleanup.sh
+  657  cat /home/hadoop/yarn_done_logs_cleanup.sh
+  658  cat /home/hadoop/local_log_cleanup.sh
+  982  history | grep clean
+[hadoop@ip-10-171-10-15 ~]$  cat /home/hadoop/cleanup.sh
+#!/usr/bin/env bash
+export HADOOP_CLIENT_OPTS="-Xmx6g"
+for x in `hdfs dfs -ls /var/log/spark/apps/ | awk '!/inprogress/{print $8}'`; do
+echo Deleting $x
+hdfs dfs -rm $x;
+done
+[hadoop@ip-10-171-10-15 ~]$ hdfs dfs -du
+OpenJDK 64-Bit Server VM warning: Insufficient space for shared memory file:
+   11841
+Try using the -Djava.io.tmpdir= option to select an alternate temp location.
+
+52660220    157980660   .hiveJars
+1130093075  3390279225  .yarn
+You have new mail in /var/spool/mail/hadoop
+[hadoop@ip-10-171-10-15 ~]$ hdfs dfs -du -s -h /directory
+OpenJDK 64-Bit Server VM warning: Insufficient space for shared memory file:
+   13711
+Try using the -Djava.io.tmpdir= option to select an alternate temp location.
+
+du: `/directory': No such file or directory
+[hadoop@ip-10-171-10-15 ~]$ hdfs dfs -du -s -h /var/log
+OpenJDK 64-Bit Server VM warning: Insufficient space for shared memory file:
+   14358
+Try using the -Djava.io.tmpdir= option to select an alternate temp location.
+
+9.8 M  29.4 M  /var/log
+[hadoop@ip-10-171-10-15 ~]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         47G     0   47G   0% /dev
+tmpfs            47G     0   47G   0% /dev/shm
+tmpfs            47G  266M   46G   1% /run
+tmpfs            47G     0   47G   0% /sys/fs/cgroup
+/dev/nvme0n1p1  100G   11G   90G  11% /
+/dev/nvme1n1p1  5.0G  5.0G   20K 100% /emr
+/dev/nvme1n1p2  245G  245G   20K 100% /mnt
+tmpfs           9.3G     0  9.3G   0% /run/user/993
+tmpfs           9.3G     0  9.3G   0% /run/user/989
+tmpfs           9.3G     0  9.3G   0% /run/user/990
+tmpfs           9.3G     0  9.3G   0% /run/user/988
+tmpfs           9.3G     0  9.3G   0% /run/user/983
+tmpfs           9.3G     0  9.3G   0% /run/user/982
+tmpfs           9.3G     0  9.3G   0% /run/user/981
+tmpfs           9.3G     0  9.3G   0% /run/user/985
+tmpfs           9.3G     0  9.3G   0% /run/user/984
+tmpfs           9.3G     0  9.3G   0% /run/user/986
+tmpfs           9.3G     0  9.3G   0% /run/user/994
+tmpfs           9.3G     0  9.3G   0% /run/user/995
+[hadoop@ip-10-171-10-15 ~]$ cd /emr
+[hadoop@ip-10-171-10-15 emr]$ ls
+apppusher  instance-controller  instance-state  logpusher  metricscollector  setup-devices
+[hadoop@ip-10-171-10-15 emr]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         47G     0   47G   0% /dev
+tmpfs            47G     0   47G   0% /dev/shm
+tmpfs            47G  266M   46G   1% /run
+tmpfs            47G     0   47G   0% /sys/fs/cgroup
+/dev/nvme0n1p1  100G   11G   90G  11% /
+/dev/nvme1n1p1  5.0G  5.0G   20K 100% /emr
+/dev/nvme1n1p2  245G  245G   20K 100% /mnt
+tmpfs           9.3G     0  9.3G   0% /run/user/993
+tmpfs           9.3G     0  9.3G   0% /run/user/989
+tmpfs           9.3G     0  9.3G   0% /run/user/990
+tmpfs           9.3G     0  9.3G   0% /run/user/988
+tmpfs           9.3G     0  9.3G   0% /run/user/983
+tmpfs           9.3G     0  9.3G   0% /run/user/982
+tmpfs           9.3G     0  9.3G   0% /run/user/981
+tmpfs           9.3G     0  9.3G   0% /run/user/985
+tmpfs           9.3G     0  9.3G   0% /run/user/984
+tmpfs           9.3G     0  9.3G   0% /run/user/986
+tmpfs           9.3G     0  9.3G   0% /run/user/994
+tmpfs           9.3G     0  9.3G   0% /run/user/995
+[hadoop@ip-10-171-10-15 emr]$ df -h /emr
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme1n1p1  5.0G  5.0G   20K 100% /emr
+[hadoop@ip-10-171-10-15 emr]$ ls -ltr
+total 12
+drwxr-xr-x 2 root   root    227 Sep 27  2021 setup-devices
+drwxr-x--- 6 hadoop hadoop   49 Sep 27  2021 instance-controller
+drwx------ 7 hadoop hadoop   68 Sep 27  2021 apppusher
+drwxr-xr-x 7 hadoop hadoop   62 Sep 27  2021 metricscollector
+drwxr-xr-x 6 root   root     49 Apr  5 11:57 logpusher
+drwxr-xr-x 2 hadoop hadoop 8192 Jun  4 14:17 instance-state
+[hadoop@ip-10-171-10-15 emr]$ cd l-bash: cannot create temp file for here-document: No space left on device
+^C
+[hadoop@ip-10-171-10-15 emr]$ cd logpusher
+[hadoop@ip-10-171-10-15 logpusher]$ ls -ltr
+total 4
+drwxr-xr-x 2 root root    6 Sep 27  2021 lib
+drwxr-xr-x 3 root root   44 Apr  5 11:55 run
+drwxr-xr-x 3 root root  113 May 24 12:01 db
+drwxr-xr-x 2 root root 4096 Jun  3 21:00 log
+[hadoop@ip-10-171-10-15 logpusher]$ cd log
+[hadoop@ip-10-171-10-15 log]$ ls -ltr
+total 272
+-rw-r--r-- 1 root root      0 May 31 19:57 logpusher.log.2022-05-31-19
+-rw-r--r-- 1 root root      0 May 31 20:57 logpusher.log.2022-05-31-20
+-rw-r--r-- 1 root root      0 Jun  1 00:59 logpusher.log.2022-06-01-00
+-rw-r--r-- 1 root root      0 Jun  1 01:59 logpusher.log.2022-06-01-01
+-rw-r--r-- 1 root root      0 Jun  1 02:59 logpusher.log.2022-06-01-02
+-rw-r--r-- 1 root root      0 Jun  1 03:59 logpusher.log.2022-06-01-03
+-rw-r--r-- 1 root root      0 Jun  1 04:59 logpusher.log.2022-06-01-04
+-rw-r--r-- 1 root root    837 Jun  1 13:08 logpusher.log.2022-06-01-05.gz
+-rw-r--r-- 1 root root    845 Jun  1 13:09 logpusher.log.2022-05-31-22.gz
+-rw-r--r-- 1 root root   1721 Jun  1 13:09 logpusher.log.2022-05-31-23.gz
+-rw-r--r-- 1 root root   2092 Jun  1 13:09 logpusher.log.2022-05-31-17.gz
+-rw-r--r-- 1 root root 262144 Jun  1 13:57 logpusher.log.2022-06-01-13
+-rw-r--r-- 1 root root      0 Jun  1 14:57 logpusher.log.2022-06-01-14
+-rw-r--r-- 1 root root      0 Jun  1 15:57 logpusher.log.2022-06-01-15
+-rw-r--r-- 1 root root      0 Jun  1 16:57 logpusher.log.2022-06-01-16
+-rw-r--r-- 1 root root      0 Jun  1 17:57 logpusher.log.2022-06-01-17
+-rw-r--r-- 1 root root      0 Jun  1 18:59 logpusher.log.2022-06-01-18
+-rw-r--r-- 1 root root      0 Jun  1 19:07 logpusher.log.2022-06-01-13.gz
+-rw-r--r-- 1 root root      0 Jun  1 19:59 logpusher.log.2022-06-01-19
+-rw-r--r-- 1 root root      0 Jun  1 20:59 logpusher.log.2022-06-01-20
+-rw-r--r-- 1 root root      0 Jun  1 21:59 logpusher.log.2022-06-01-21
+-rw-r--r-- 1 root root      0 Jun  1 22:59 logpusher.log.2022-06-01-22
+-rw-r--r-- 1 root root      0 Jun  1 23:59 logpusher.log.2022-06-01-23
+-rw-r--r-- 1 root root      0 Jun  2 00:59 logpusher.log.2022-06-02-00
+-rw-r--r-- 1 root root      0 Jun  2 01:59 logpusher.log.2022-06-02-01
+-rw-r--r-- 1 root root      0 Jun  2 02:59 logpusher.log.2022-06-02-02
+-rw-r--r-- 1 root root      0 Jun  2 03:59 logpusher.log.2022-06-02-03
+-rw-r--r-- 1 root root      0 Jun  2 04:59 logpusher.log.2022-06-02-04
+-rw-r--r-- 1 root root      0 Jun  2 05:59 logpusher.log.2022-06-02-05
+-rw-r--r-- 1 root root      0 Jun  2 06:59 logpusher.log.2022-06-02-06
+-rw-r--r-- 1 root root      0 Jun  2 07:59 logpusher.log.2022-06-02-07
+-rw-r--r-- 1 root root      0 Jun  2 08:59 logpusher.log.2022-06-02-08
+-rw-r--r-- 1 root root      0 Jun  2 09:59 logpusher.log.2022-06-02-09
+-rw-r--r-- 1 root root      0 Jun  2 10:59 logpusher.log.2022-06-02-10
+-rw-r--r-- 1 root root      0 Jun  2 11:59 logpusher.log.2022-06-02-11
+-rw-r--r-- 1 root root      0 Jun  2 12:59 logpusher.log.2022-06-02-12
+-rw-r--r-- 1 root root      0 Jun  2 13:59 logpusher.log.2022-06-02-13
+-rw-r--r-- 1 root root      0 Jun  2 14:59 logpusher.log.2022-06-02-14
+-rw-r--r-- 1 root root      0 Jun  2 15:59 logpusher.log.2022-06-02-15
+-rw-r--r-- 1 root root      0 Jun  2 16:59 logpusher.log.2022-06-02-16
+-rw-r--r-- 1 root root      0 Jun  2 17:59 logpusher.log.2022-06-02-17
+-rw-r--r-- 1 root root      0 Jun  2 18:59 logpusher.log.2022-06-02-18
+-rw-r--r-- 1 root root      0 Jun  2 19:59 logpusher.log.2022-06-02-19
+-rw-r--r-- 1 root root      0 Jun  2 20:59 logpusher.log.2022-06-02-20
+-rw-r--r-- 1 root root      0 Jun  2 21:59 logpusher.log.2022-06-02-21
+-rw-r--r-- 1 root root      0 Jun  2 22:59 logpusher.log.2022-06-02-22
+-rw-r--r-- 1 root root      0 Jun  2 23:59 logpusher.log.2022-06-02-23
+-rw-r--r-- 1 root root      0 Jun  3 00:59 logpusher.log.2022-06-03-00
+-rw-r--r-- 1 root root      0 Jun  3 01:59 logpusher.log.2022-06-03-01
+-rw-r--r-- 1 root root      0 Jun  3 02:59 logpusher.log.2022-06-03-02
+-rw-r--r-- 1 root root      0 Jun  3 03:59 logpusher.log.2022-06-03-03
+-rw-r--r-- 1 root root      0 Jun  3 04:59 logpusher.log.2022-06-03-04
+-rw-r--r-- 1 root root      0 Jun  3 05:59 logpusher.log.2022-06-03-05
+-rw-r--r-- 1 root root      0 Jun  3 06:59 logpusher.log.2022-06-03-06
+-rw-r--r-- 1 root root      0 Jun  3 07:59 logpusher.log.2022-06-03-07
+-rw-r--r-- 1 root root      0 Jun  3 08:59 logpusher.log.2022-06-03-08
+-rw-r--r-- 1 root root      0 Jun  3 09:59 logpusher.log.2022-06-03-09
+-rw-r--r-- 1 root root      0 Jun  3 10:59 logpusher.log.2022-06-03-10
+-rw-r--r-- 1 root root      0 Jun  3 11:59 logpusher.log.2022-06-03-11
+-rw-r--r-- 1 root root      0 Jun  3 12:59 logpusher.log.2022-06-03-12
+-rw-r--r-- 1 root root      0 Jun  3 13:59 logpusher.log.2022-06-03-13
+-rw-r--r-- 1 root root      0 Jun  3 20:59 logpusher.log.2022-06-03-20
+-rw-r--r-- 1 root root      0 Jun  9 22:00 logpusher.out
+-rw-r--r-- 1 root root      0 Jun  9 22:41 logpusher.log
+[hadoop@ip-10-171-10-15 log]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         47G     0   47G   0% /dev
+tmpfs            47G     0   47G   0% /dev/shm
+tmpfs            47G  266M   46G   1% /run
+tmpfs            47G     0   47G   0% /sys/fs/cgroup
+/dev/nvme0n1p1  100G   11G   90G  11% /
+/dev/nvme1n1p1  5.0G  5.0G   20K 100% /emr
+/dev/nvme1n1p2  245G  245G   20K 100% /mnt
+tmpfs           9.3G     0  9.3G   0% /run/user/993
+tmpfs           9.3G     0  9.3G   0% /run/user/989
+tmpfs           9.3G     0  9.3G   0% /run/user/990
+tmpfs           9.3G     0  9.3G   0% /run/user/988
+tmpfs           9.3G     0  9.3G   0% /run/user/983
+tmpfs           9.3G     0  9.3G   0% /run/user/982
+tmpfs           9.3G     0  9.3G   0% /run/user/981
+tmpfs           9.3G     0  9.3G   0% /run/user/985
+tmpfs           9.3G     0  9.3G   0% /run/user/984
+tmpfs           9.3G     0  9.3G   0% /run/user/986
+tmpfs           9.3G     0  9.3G   0% /run/user/994
+tmpfs           9.3G     0  9.3G   0% /run/user/995
+[hadoop@ip-10-171-10-15 log]$ du -h
+276K    .
+[hadoop@ip-10-171-10-15 log]$ rm -f logpusher.log.2022-06-01-05.gz
+rm: cannot remove ‘logpusher.log.2022-06-01-05.gz’: Permission denied
+[hadoop@ip-10-171-10-15 log]$ sudo su
+
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+
+[root@ip-10-171-10-15 log]# rm -f logpusher.log.2022-06-01-05.gz
+[root@ip-10-171-10-15 log]# rm -f logpusher.log.2022-05-31-22.gz
+[root@ip-10-171-10-15 log]# rm -f logpusher.log.2022-05-31-23.gz
+[root@ip-10-171-10-15 log]# rm -f logpusher.log.2022-05-31-17.gz
+[root@ip-10-171-10-15 log]# rm -f logpusher.log.2022-06-01-13.gz
+[root@ip-10-171-10-15 log]# du -h
+272K    .
+[root@ip-10-171-10-15 log]# du -a /dir/ | sort -n -r | head -n 20
+du: cannot access ‘/dir/’: No such file or directory
+[root@ip-10-171-10-15 log]# du -a /emr/ | sort -n -r | head -n 20
+5193852 /emr/
+5163568 /emr/apppusher
+4950756 /emr/apppusher/ytsdata
+3350032 /emr/apppusher/ytsdata/audit.log
+1600720 /emr/apppusher/ytsdata/audit.script
+212804  /emr/apppusher/log
+47640   /emr/apppusher/log/apppusher.2022-05-21-10-1.log
+37732   /emr/apppusher/log/apppusher.2022-05-21-02-1.log
+28264   /emr/apppusher/log/apppusher.out
+26904   /emr/apppusher/log/apppusher.2022-05-30-17-1.log
+15728   /emr/apppusher/log/apppusher.2022-05-30-11-1.log
+14136   /emr/apppusher/log/apppusher.2022-05-30-14-1.log
+13628   /emr/apppusher/log/apppusher.2022-05-30-09-1.log
+13552   /emr/instance-controller
+9584    /emr/logpusher
+9308    /emr/logpusher/db
+8924    /emr/logpusher/db/data.log
+8856    /emr/apppusher/log/apppusher.2022-06-01-13-1.log
+8596    /emr/instance-controller/lib
+8556    /emr/instance-controller/lib/info
+[root@ip-10-171-10-15 log]# cd /emr/apppusher/log
+[root@ip-10-171-10-15 log]# ls -ltr
+total 212800
+-rwx------ 1 hadoop hadoop 38635122 May 21 02:59 apppusher.2022-05-21-02-1.log
+-rwx------ 1 hadoop hadoop 48781695 May 21 10:59 apppusher.2022-05-21-10-1.log
+-rwx------ 1 hadoop hadoop  6148069 May 22 12:59 apppusher.2022-05-22-12-1.log
+-rwx------ 1 hadoop hadoop   113510 May 28 04:59 apppusher.2022-05-28-04-2.log
+-rwx------ 1 hadoop hadoop 13950976 May 30 09:59 apppusher.2022-05-30-09-1.log
+-rwx------ 1 hadoop hadoop    49152 May 30 10:16 apppusher.2022-05-30-10-1.log
+-rwx------ 1 hadoop hadoop     8192 May 30 10:48 apppusher.2022-05-30-10-2.log
+-rwx------ 1 hadoop hadoop     4096 May 30 10:59 apppusher.2022-05-30-10-3.log
+-rwx------ 1 hadoop hadoop 16101376 May 30 11:59 apppusher.2022-05-30-11-1.log
+-rwx------ 1 hadoop hadoop  8740864 May 30 12:59 apppusher.2022-05-30-12-1.log
+-rwx------ 1 hadoop hadoop 14471168 May 30 14:59 apppusher.2022-05-30-14-1.log
+-rwx------ 1 hadoop hadoop  2867200 May 30 15:59 apppusher.2022-05-30-15-1.log
+-rwx------ 1 hadoop hadoop  1851392 May 30 16:59 apppusher.2022-05-30-16-1.log
+-rwx------ 1 hadoop hadoop 27545600 May 30 17:59 apppusher.2022-05-30-17-1.log
+-rwx------ 1 hadoop hadoop    12288 May 30 18:47 apppusher.2022-05-30-18-1.log
+-rwx------ 1 hadoop hadoop     4096 May 30 20:52 apppusher.2022-05-30-20-1.log
+-rwx------ 1 hadoop hadoop     8192 May 30 23:03 apppusher.2022-05-30-23-1.log
+-rwx------ 1 hadoop hadoop   557056 May 31 23:59 apppusher.2022-05-31-23-1.log
+-rwx------ 1 hadoop hadoop  9064448 Jun  1 13:59 apppusher.2022-06-01-13-1.log
+-rwx------ 1 hadoop hadoop        0 Jun  1 14:00 apppusher.2022-06-01-13-1.log.gz
+-rwx------ 1 hadoop hadoop     4096 Jun  1 14:59 apppusher.2022-06-01-14-1.log
+-rwx------ 1 hadoop hadoop        0 Jun  1 15:00 apppusher.2022-06-01-14-1.log.gz
+-rwx------ 1 hadoop hadoop     4096 Jun  1 17:59 apppusher.2022-06-01-17-1.log
+-rwx------ 1 hadoop hadoop        0 Jun  1 18:00 apppusher.2022-06-01-17-1.log.gz
+-rwx------ 1 hadoop hadoop     8192 Jun  1 18:48 apppusher.2022-06-01-18-1.log
+-rwx------ 1 hadoop hadoop        0 Jun  1 18:48 apppusher.2022-06-01-18-1.log.gz
+-rwx------ 1 hadoop hadoop     4096 Jun  3 20:02 apppusher.2022-06-03-20-1.log
+-rwx------ 1 hadoop hadoop        0 Jun  3 20:02 apppusher.2022-06-03-20-1.log.gz
+-rwx------ 1 hadoop hadoop 28934144 Jun  9 22:50 apppusher.out
+-rwx------ 1 hadoop hadoop     4096 Jun  9 22:50 apppusher.log
+[root@ip-10-171-10-15 log]# rm -f apppusher.2022-05-21-02-1.log
+[root@ip-10-171-10-15 log]# rm -f apppusher.2022-05-21-10-1.log
+[root@ip-10-171-10-15 log]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         47G     0   47G   0% /dev
+tmpfs            47G     0   47G   0% /dev/shm
+tmpfs            47G  1.4M   47G   1% /run
+tmpfs            47G     0   47G   0% /sys/fs/cgroup
+/dev/nvme0n1p1  100G   11G   90G  11% /
+/dev/nvme1n1p1  5.0G  5.0G   83M  99% /emr
+/dev/nvme1n1p2  245G  245G  275M 100% /mnt
+tmpfs           9.3G     0  9.3G   0% /run/user/993
+tmpfs           9.3G     0  9.3G   0% /run/user/989
+tmpfs           9.3G     0  9.3G   0% /run/user/990
+tmpfs           9.3G     0  9.3G   0% /run/user/988
+tmpfs           9.3G     0  9.3G   0% /run/user/983
+tmpfs           9.3G     0  9.3G   0% /run/user/982
+tmpfs           9.3G     0  9.3G   0% /run/user/981
+tmpfs           9.3G     0  9.3G   0% /run/user/985
+tmpfs           9.3G     0  9.3G   0% /run/user/984
+tmpfs           9.3G     0  9.3G   0% /run/user/986
+tmpfs           9.3G     0  9.3G   0% /run/user/994
+tmpfs           9.3G     0  9.3G   0% /run/user/995
+[root@ip-10-171-10-15 log]# exit
+exit
+[hadoop@ip-10-171-10-15 log]$ cd ~
+[hadoop@ip-10-171-10-15 ~]$ ls -la
+total 18596
+drwxr-xr-x 14 hadoop hadoop    4096 Jun  9 22:50 .
+drwxr-xr-x  4 root   root        36 Apr 13  2021 ..
+-rw-r--r--  1 hadoop hadoop       0 Nov  3  2021 .attach_pid10945
+-rw-r--r--  1 hadoop hadoop       0 Nov  2  2021 .attach_pid18960
+-rw-r--r--  1 hadoop hadoop       0 May 21 05:05 .attach_pid19833
+-rw-r--r--  1 hadoop hadoop       0 Feb 26 20:55 .attach_pid2158
+-rw-r--r--  1 hadoop hadoop       0 Oct 17  2021 .attach_pid23169
+-rw-r--r--  1 hadoop hadoop       0 May  6 15:55 .attach_pid26535
+-rw-r--r--  1 hadoop hadoop       0 Oct  2  2021 .attach_pid27902
+-rw-r--r--  1 hadoop hadoop       0 Sep 29  2021 .attach_pid2813
+-rw-r--r--  1 hadoop hadoop       0 May 14 09:55 .attach_pid28360
+-rw-r--r--  1 hadoop hadoop       0 Feb 24 17:05 .attach_pid29382
+-rw-r--r--  1 hadoop hadoop       0 Apr 12 18:50 .attach_pid29560
+-rw-r--r--  1 hadoop hadoop       0 Sep 30  2021 .attach_pid307
+-rw-r--r--  1 hadoop hadoop       0 Jun  1 17:55 .attach_pid31134
+-rw-r--r--  1 hadoop hadoop       0 Nov  3  2021 .attach_pid34793
+-rw-r--r--  1 hadoop hadoop       0 Dec 17 06:20 .attach_pid37824
+-rw-r--r--  1 hadoop hadoop       0 Oct 24  2021 .attach_pid40061
+-rw-r--r--  1 hadoop hadoop       0 Jan 17 09:30 .attach_pid46804
+-rw-r--r--  1 hadoop hadoop       0 Apr 16 18:35 .attach_pid9547
+drwxr-xr-x  2 hadoop hadoop      20 Apr 13  2021 .aws
+-rw-------  1 hadoop hadoop   21858 Jun  9 19:13 .bash_history
+-rw-r--r--  1 hadoop hadoop      86 Apr  6  2021 .bash_profile
+-rw-r--r--  1 hadoop hadoop     626 Apr  6  2021 .bashrc
+-rw-rw-r--  1 hadoop hadoop     198 Sep 27  2021 bootstrap_emr.log
+drwx------  3 hadoop root        25 Sep 27  2021 .cache
+-rwxrwxr-x  1 hadoop hadoop     175 Sep 14  2021 cleanup.sh
+drwxrwxr-x  2 hadoop hadoop      45 Sep 27  2021 emrfs
+-rwxrwxr-x  1 hadoop hadoop   99850 Sep 27  2021 gc-202109271947.log.0.current
+-rwxrwxr-x  1 hadoop hadoop  641573 Sep 28  2021 gc-202109272258.log.0.current.gz
+-rwxrwxr-x  1 hadoop hadoop 4329184 Sep 28  2021 gc-202109281455.log.0.current
+-rwxrwxr-x  1 hadoop hadoop 1205896 Oct 12  2021 gc-202110100801.log.0.gz
+-rwxrwxr-x  1 hadoop hadoop  271196 Oct 12  2021 gc-202110100801.log.1.current.gz
+-rwxrwxr-x  1 hadoop hadoop 1210339 Oct 12  2021 gc-202110110801.log.0.gz
+-rwxrwxr-x  1 hadoop hadoop   59317 Oct 12  2021 gc-202110110801.log.1.current.gz
+-rwxrwxr-x  1 hadoop hadoop 4031909 Oct 12  2021 gc-202110120231.log.0.current
+-rw-r--r--  1 hadoop hadoop  458350 Oct 13  2021 gc-202110121727.log.0.current.gz
+-rw-r--r--  1 hadoop hadoop 6579267 Oct 13  2021 gc-202110130230.log.0.current
+drwxrwxr-x  2 hadoop hadoop    4096 Sep 27  2021 hive
+-rw-rw-r--  1 hadoop hadoop    7616 Jan 14 23:39 .hivehistory
+-rwxrwxr-x  1 hadoop hadoop     868 Sep 14  2021 llap_monitor.sh
+-rwxrwxr-x  1 hadoop hadoop     465 Oct 26  2021 llap.sh
+drwxr-xr-x  2 hadoop hadoop      65 Jun  6 21:05 llap-yarn-06Jun2022
+drwxr-xr-x  2 hadoop hadoop      65 Feb  8 08:45 llap-yarn-08Feb2022
+drwxr-xr-x  2 hadoop hadoop      65 Jun  9 17:00 llap-yarn-09Jun2022
+drwxr-xr-x  2 hadoop hadoop      65 Apr 13 15:55 llap-yarn-13Apr2022
+drwxr-xr-x  2 hadoop hadoop      65 Mar 23 07:30 llap-yarn-23Mar2022
+drwxrwxr-x  2 hadoop hadoop      65 Oct 26  2021 llap-yarn-26Oct2021
+drwxr-xr-x  2 hadoop hadoop      65 Sep 27  2021 llap-yarn-27Sep2021
+-rw-rw-r--  1 hadoop hadoop    1096 Jun  9 22:49 local_log_cleanup_git.sh
+-rwxrwxr-x  1 hadoop hadoop      77 Jan 11 15:05 local_log_cleanup.sh
+-rwxrwxr-x  1 hadoop hadoop      57 Sep 30  2021 restart.sh
+drwx------  2 hadoop hadoop      48 May 26 02:59 .ssh
+-rwxrwxr-x  1 hadoop hadoop     409 May 26  2021 start_thrift_server.sh
+-rw-------  1 hadoop hadoop   14777 Jun  9 22:49 .viminfo
+-rw-------  1 hadoop hadoop   14195 Oct  6  2021 .viminfo.tmp
+-rw-------  1 hadoop hadoop   14195 Oct  6  2021 .viminfz.tmp
+-rwxrwxr-x  1 hadoop hadoop     230 Sep 14  2021 yarn_done_logs_cleanup.sh
+[hadoop@ip-10-171-10-15 ~]$ cat local_log_cleanup_git.sh
+#!/bin/bash
+DISK_USAGE_LIMIT=65
+DELETE_MIN_TIME=4320
+DELETE_PATH=/var/log/hadoop-yarn/
+DELETE_FULL_PATH=/var/log/hadoop-yarn/hadoop-yarn*
+
+echo "Deleting old files and directories"
+find $DELETE_PATH -mindepth 0 -mmin +$DELETE_MIN_TIME -type f -delete
+find $DELETE_PATH -mindepth 0 -mmin +$DELETE_MIN_TIME -empty -type d -delete
+
+echo "Checking Disk Usage"
+DISK_USAGE=$(df -k $DELETE_PATH | awk '{gsub("%",""); DISK_USAGE=$5}; END {print DISK_USAGE}')
+echo "Current disk usage is" $DISK_USAGE
+while [ $DISK_USAGE -gt $DISK_USAGE_LIMIT ]
+do
+        DELETE_MIN_TIME="$((DELETE_MIN_TIME-120))"
+                echo $DELETE_MIN_TIME
+        if [[ $DELETE_MIN_TIME -lt 120 ]]; then
+                find $DELETE_FULL_PATH -mindepth 0 -mmin +$DELETE_MIN_TIME -type f -delete
+                find $DELETE_FULL_PATH -mindepth 0 -mmin +$DELETE_MIN_TIME -empty -type d -delete
+        else
+                break
+        fi
+        DISK_USAGE=$(df -k $DELETE_PATH | awk '{gsub("%",""); DISK_USAGE=$5}; END {print DISK_USAGE}')
+        echo $DISK_USAGE
+        echo "Disk usage is under disk usage limit"
+done
+[hadoop@ip-10-171-10-15 ~]$ pwd
+/home/hadoop
+[hadoop@ip-10-171-10-15 ~]$ sudo su
+
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+
+[root@ip-10-171-10-15 hadoop]# ls -la
+total 18596
+drwxr-xr-x 14 hadoop hadoop    4096 Jun  9 22:55 .
+drwxr-xr-x  4 root   root        36 Apr 13  2021 ..
+-rw-r--r--  1 hadoop hadoop       0 Nov  3  2021 .attach_pid10945
+-rw-r--r--  1 hadoop hadoop       0 Nov  2  2021 .attach_pid18960
+-rw-r--r--  1 hadoop hadoop       0 May 21 05:05 .attach_pid19833
+-rw-r--r--  1 hadoop hadoop       0 Feb 26 20:55 .attach_pid2158
+-rw-r--r--  1 hadoop hadoop       0 Oct 17  2021 .attach_pid23169
+-rw-r--r--  1 hadoop hadoop       0 May  6 15:55 .attach_pid26535
+-rw-r--r--  1 hadoop hadoop       0 Oct  2  2021 .attach_pid27902
+-rw-r--r--  1 hadoop hadoop       0 Sep 29  2021 .attach_pid2813
+-rw-r--r--  1 hadoop hadoop       0 May 14 09:55 .attach_pid28360
+-rw-r--r--  1 hadoop hadoop       0 Feb 24 17:05 .attach_pid29382
+-rw-r--r--  1 hadoop hadoop       0 Apr 12 18:50 .attach_pid29560
+-rw-r--r--  1 hadoop hadoop       0 Sep 30  2021 .attach_pid307
+-rw-r--r--  1 hadoop hadoop       0 Jun  1 17:55 .attach_pid31134
+-rw-r--r--  1 hadoop hadoop       0 Nov  3  2021 .attach_pid34793
+-rw-r--r--  1 hadoop hadoop       0 Dec 17 06:20 .attach_pid37824
+-rw-r--r--  1 hadoop hadoop       0 Oct 24  2021 .attach_pid40061
+-rw-r--r--  1 hadoop hadoop       0 Jan 17 09:30 .attach_pid46804
+-rw-r--r--  1 hadoop hadoop       0 Apr 16 18:35 .attach_pid9547
+drwxr-xr-x  2 hadoop hadoop      20 Apr 13  2021 .aws
+-rw-------  1 hadoop hadoop   21858 Jun  9 19:13 .bash_history
+-rw-r--r--  1 hadoop hadoop      86 Apr  6  2021 .bash_profile
+-rw-r--r--  1 hadoop hadoop     626 Apr  6  2021 .bashrc
+-rw-rw-r--  1 hadoop hadoop     198 Sep 27  2021 bootstrap_emr.log
+drwx------  3 hadoop root        25 Sep 27  2021 .cache
+-rwxrwxr-x  1 hadoop hadoop     175 Sep 14  2021 cleanup.sh
+drwxrwxr-x  2 hadoop hadoop      45 Sep 27  2021 emrfs
+-rwxrwxr-x  1 hadoop hadoop   99850 Sep 27  2021 gc-202109271947.log.0.current
+-rwxrwxr-x  1 hadoop hadoop  641573 Sep 28  2021 gc-202109272258.log.0.current.gz
+-rwxrwxr-x  1 hadoop hadoop 4329184 Sep 28  2021 gc-202109281455.log.0.current
+-rwxrwxr-x  1 hadoop hadoop 1205896 Oct 12  2021 gc-202110100801.log.0.gz
+-rwxrwxr-x  1 hadoop hadoop  271196 Oct 12  2021 gc-202110100801.log.1.current.gz
+-rwxrwxr-x  1 hadoop hadoop 1210339 Oct 12  2021 gc-202110110801.log.0.gz
+-rwxrwxr-x  1 hadoop hadoop   59317 Oct 12  2021 gc-202110110801.log.1.current.gz
+-rwxrwxr-x  1 hadoop hadoop 4031909 Oct 12  2021 gc-202110120231.log.0.current
+-rw-r--r--  1 hadoop hadoop  458350 Oct 13  2021 gc-202110121727.log.0.current.gz
+-rw-r--r--  1 hadoop hadoop 6579267 Oct 13  2021 gc-202110130230.log.0.current
+drwxrwxr-x  2 hadoop hadoop    4096 Sep 27  2021 hive
+-rw-rw-r--  1 hadoop hadoop    7616 Jan 14 23:39 .hivehistory
+-rwxrwxr-x  1 hadoop hadoop     868 Sep 14  2021 llap_monitor.sh
+-rwxrwxr-x  1 hadoop hadoop     465 Oct 26  2021 llap.sh
+drwxr-xr-x  2 hadoop hadoop      65 Jun  6 21:05 llap-yarn-06Jun2022
+drwxr-xr-x  2 hadoop hadoop      65 Feb  8 08:45 llap-yarn-08Feb2022
+drwxr-xr-x  2 hadoop hadoop      65 Jun  9 17:00 llap-yarn-09Jun2022
+drwxr-xr-x  2 hadoop hadoop      65 Apr 13 15:55 llap-yarn-13Apr2022
+drwxr-xr-x  2 hadoop hadoop      65 Mar 23 07:30 llap-yarn-23Mar2022
+drwxrwxr-x  2 hadoop hadoop      65 Oct 26  2021 llap-yarn-26Oct2021
+drwxr-xr-x  2 hadoop hadoop      65 Sep 27  2021 llap-yarn-27Sep2021
+-rw-rw-r--  1 hadoop hadoop    1096 Jun  9 22:49 local_log_cleanup_git.sh
+-rwxrwxr-x  1 hadoop hadoop      77 Jan 11 15:05 local_log_cleanup.sh
+-rwxrwxr-x  1 hadoop hadoop      57 Sep 30  2021 restart.sh
+drwx------  2 hadoop hadoop      48 May 26 02:59 .ssh
+-rwxrwxr-x  1 hadoop hadoop     409 May 26  2021 start_thrift_server.sh
+-rw-------  1 hadoop hadoop   14777 Jun  9 22:49 .viminfo
+-rw-------  1 hadoop hadoop   14195 Oct  6  2021 .viminfo.tmp
+-rw-------  1 hadoop hadoop   14195 Oct  6  2021 .viminfz.tmp
+-rwxrwxr-x  1 hadoop hadoop     230 Sep 14  2021 yarn_done_logs_cleanup.sh
+[root@ip-10-171-10-15 hadoop]# bash local_log_cleanup_git.sh
+Deleting old files and directories
+Checking Disk Usage
+Current disk usage is 47
+[root@ip-10-171-10-15 hadoop]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         47G     0   47G   0% /dev
+tmpfs            47G     0   47G   0% /dev/shm
+tmpfs            47G  1.4M   47G   1% /run
+tmpfs            47G     0   47G   0% /sys/fs/cgroup
+/dev/nvme0n1p1  100G   11G   90G  11% /
+/dev/nvme1n1p1  5.0G  5.0G   85M  99% /emr
+/dev/nvme1n1p2  245G  114G  132G  47% /mnt
+tmpfs           9.3G     0  9.3G   0% /run/user/993
+tmpfs           9.3G     0  9.3G   0% /run/user/989
+tmpfs           9.3G     0  9.3G   0% /run/user/990
+tmpfs           9.3G     0  9.3G   0% /run/user/988
+tmpfs           9.3G     0  9.3G   0% /run/user/983
+tmpfs           9.3G     0  9.3G   0% /run/user/982
+tmpfs           9.3G     0  9.3G   0% /run/user/981
+tmpfs           9.3G     0  9.3G   0% /run/user/985
+tmpfs           9.3G     0  9.3G   0% /run/user/984
+tmpfs           9.3G     0  9.3G   0% /run/user/986
+tmpfs           9.3G     0  9.3G   0% /run/user/994
+tmpfs           9.3G     0  9.3G   0% /run/user/995
+[root@ip-10-171-10-15 hadoop]# cd /emr/apppusher/log
+You have new mail in /var/spool/mail/hadoop
+[root@ip-10-171-10-15 log]# ls -ltr
+total 128556
+-rwx------ 1 hadoop hadoop  6148069 May 22 12:59 apppusher.2022-05-22-12-1.log
+-rwx------ 1 hadoop hadoop   113510 May 28 04:59 apppusher.2022-05-28-04-2.log
+-rwx------ 1 hadoop hadoop 13950976 May 30 09:59 apppusher.2022-05-30-09-1.log
+-rwx------ 1 hadoop hadoop    49152 May 30 10:16 apppusher.2022-05-30-10-1.log
+-rwx------ 1 hadoop hadoop     8192 May 30 10:48 apppusher.2022-05-30-10-2.log
+-rwx------ 1 hadoop hadoop     4096 May 30 10:59 apppusher.2022-05-30-10-3.log
+-rwx------ 1 hadoop hadoop 16101376 May 30 11:59 apppusher.2022-05-30-11-1.log
+-rwx------ 1 hadoop hadoop  8740864 May 30 12:59 apppusher.2022-05-30-12-1.log
+-rwx------ 1 hadoop hadoop 14471168 May 30 14:59 apppusher.2022-05-30-14-1.log
+-rwx------ 1 hadoop hadoop  2867200 May 30 15:59 apppusher.2022-05-30-15-1.log
+-rwx------ 1 hadoop hadoop  1851392 May 30 16:59 apppusher.2022-05-30-16-1.log
+-rwx------ 1 hadoop hadoop 27545600 May 30 17:59 apppusher.2022-05-30-17-1.log
+-rwx------ 1 hadoop hadoop    12288 May 30 18:47 apppusher.2022-05-30-18-1.log
+-rwx------ 1 hadoop hadoop     4096 May 30 20:52 apppusher.2022-05-30-20-1.log
+-rwx------ 1 hadoop hadoop     8192 May 30 23:03 apppusher.2022-05-30-23-1.log
+-rwx------ 1 hadoop hadoop   557056 May 31 23:59 apppusher.2022-05-31-23-1.log
+-rwx------ 1 hadoop hadoop  9064448 Jun  1 13:59 apppusher.2022-06-01-13-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  1 14:59 apppusher.2022-06-01-14-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  1 17:59 apppusher.2022-06-01-17-1.log
+-rwx------ 1 hadoop hadoop     8192 Jun  1 18:48 apppusher.2022-06-01-18-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  3 20:02 apppusher.2022-06-03-20-1.log
+-rwx------ 1 hadoop hadoop 28938240 Jun  9 22:57 apppusher.out
+-rw------- 1 root   root     433582 Jun  9 23:00 apppusher.2022-06-09-22-1.log.gz
+-rw------- 1 root   root     710043 Jun  9 23:00 apppusher.log
+[root@ip-10-171-10-15 log]# rm -f apppusher.2022-05-30-09-1.log
+[root@ip-10-171-10-15 log]# rm -f apppusher.2022-05-30-17-1.log
+[root@ip-10-171-10-15 log]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         47G     0   47G   0% /dev
+tmpfs            47G     0   47G   0% /dev/shm
+tmpfs            47G  1.5M   47G   1% /run
+tmpfs            47G     0   47G   0% /sys/fs/cgroup
+/dev/nvme0n1p1  100G   11G   90G  11% /
+/dev/nvme1n1p1  5.0G  4.9G  129M  98% /emr
+/dev/nvme1n1p2  245G  114G  132G  47% /mnt
+tmpfs           9.3G     0  9.3G   0% /run/user/993
+tmpfs           9.3G     0  9.3G   0% /run/user/989
+tmpfs           9.3G     0  9.3G   0% /run/user/990
+tmpfs           9.3G     0  9.3G   0% /run/user/988
+tmpfs           9.3G     0  9.3G   0% /run/user/983
+tmpfs           9.3G     0  9.3G   0% /run/user/982
+tmpfs           9.3G     0  9.3G   0% /run/user/981
+tmpfs           9.3G     0  9.3G   0% /run/user/985
+tmpfs           9.3G     0  9.3G   0% /run/user/984
+tmpfs           9.3G     0  9.3G   0% /run/user/986
+tmpfs           9.3G     0  9.3G   0% /run/user/994
+tmpfs           9.3G     0  9.3G   0% /run/user/995
+tmpfs           9.3G     0  9.3G   0% /run/user/0
+[root@ip-10-171-10-15 log]# gzip apppusher.2022-05-30-20-1.log
+[root@ip-10-171-10-15 log]# ls -ltr
+total 90012
+-rwx------ 1 hadoop hadoop  6148069 May 22 12:59 apppusher.2022-05-22-12-1.log
+-rwx------ 1 hadoop hadoop   113510 May 28 04:59 apppusher.2022-05-28-04-2.log
+-rwx------ 1 hadoop hadoop    49152 May 30 10:16 apppusher.2022-05-30-10-1.log
+-rwx------ 1 hadoop hadoop     8192 May 30 10:48 apppusher.2022-05-30-10-2.log
+-rwx------ 1 hadoop hadoop     4096 May 30 10:59 apppusher.2022-05-30-10-3.log
+-rwx------ 1 hadoop hadoop 16101376 May 30 11:59 apppusher.2022-05-30-11-1.log
+-rwx------ 1 hadoop hadoop  8740864 May 30 12:59 apppusher.2022-05-30-12-1.log
+-rwx------ 1 hadoop hadoop 14471168 May 30 14:59 apppusher.2022-05-30-14-1.log
+-rwx------ 1 hadoop hadoop  2867200 May 30 15:59 apppusher.2022-05-30-15-1.log
+-rwx------ 1 hadoop hadoop  1851392 May 30 16:59 apppusher.2022-05-30-16-1.log
+-rwx------ 1 hadoop hadoop    12288 May 30 18:47 apppusher.2022-05-30-18-1.log
+-rwx------ 1 hadoop hadoop      754 May 30 20:52 apppusher.2022-05-30-20-1.log.gz
+-rwx------ 1 hadoop hadoop     8192 May 30 23:03 apppusher.2022-05-30-23-1.log
+-rwx------ 1 hadoop hadoop   557056 May 31 23:59 apppusher.2022-05-31-23-1.log
+-rwx------ 1 hadoop hadoop  9064448 Jun  1 13:59 apppusher.2022-06-01-13-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  1 14:59 apppusher.2022-06-01-14-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  1 17:59 apppusher.2022-06-01-17-1.log
+-rwx------ 1 hadoop hadoop     8192 Jun  1 18:48 apppusher.2022-06-01-18-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  3 20:02 apppusher.2022-06-03-20-1.log
+-rwx------ 1 hadoop hadoop   433582 Jun  9 23:00 apppusher.2022-06-09-22-1.log.gz
+-rwx------ 1 hadoop hadoop 28942336 Jun  9 23:01 apppusher.out
+-rwx------ 1 hadoop hadoop  2673580 Jun  9 23:03 apppusher.log
+[root@ip-10-171-10-15 log]# gzip apppusher.2022-05-22-12-1.log
+[root@ip-10-171-10-15 log]# gzip apppusher.2022-05-28-04-2.log
+[root@ip-10-171-10-15 log]# gzip apppusher.2022-05-*
+gzip: apppusher.2022-05-22-12-1.log.gz already has .gz suffix -- unchanged
+gzip: apppusher.2022-05-28-04-2.log.gz already has .gz suffix -- unchanged
+gzip: apppusher.2022-05-30-20-1.log.gz already has .gz suffix -- unchanged
+[root@ip-10-171-10-15 log]# ls -ltr
+total 45060
+-rwx------ 1 hadoop hadoop   268446 May 22 12:59 apppusher.2022-05-22-12-1.log.gz
+-rwx------ 1 hadoop hadoop     8228 May 28 04:59 apppusher.2022-05-28-04-2.log.gz
+-rwx------ 1 hadoop hadoop     2514 May 30 10:16 apppusher.2022-05-30-10-1.log.gz
+-rwx------ 1 hadoop hadoop     1222 May 30 10:48 apppusher.2022-05-30-10-2.log.gz
+-rwx------ 1 hadoop hadoop      799 May 30 10:59 apppusher.2022-05-30-10-3.log.gz
+-rwx------ 1 hadoop hadoop   925002 May 30 11:59 apppusher.2022-05-30-11-1.log.gz
+-rwx------ 1 hadoop hadoop   535839 May 30 12:59 apppusher.2022-05-30-12-1.log.gz
+-rwx------ 1 hadoop hadoop   924369 May 30 14:59 apppusher.2022-05-30-14-1.log.gz
+-rwx------ 1 hadoop hadoop   161179 May 30 15:59 apppusher.2022-05-30-15-1.log.gz
+-rwx------ 1 hadoop hadoop   118295 May 30 16:59 apppusher.2022-05-30-16-1.log.gz
+-rwx------ 1 hadoop hadoop     1541 May 30 18:47 apppusher.2022-05-30-18-1.log.gz
+-rwx------ 1 hadoop hadoop      754 May 30 20:52 apppusher.2022-05-30-20-1.log.gz
+-rwx------ 1 hadoop hadoop     1158 May 30 23:03 apppusher.2022-05-30-23-1.log.gz
+-rwx------ 1 hadoop hadoop     9669 May 31 23:59 apppusher.2022-05-31-23-1.log.gz
+-rwx------ 1 hadoop hadoop  9064448 Jun  1 13:59 apppusher.2022-06-01-13-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  1 14:59 apppusher.2022-06-01-14-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  1 17:59 apppusher.2022-06-01-17-1.log
+-rwx------ 1 hadoop hadoop     8192 Jun  1 18:48 apppusher.2022-06-01-18-1.log
+-rwx------ 1 hadoop hadoop     4096 Jun  3 20:02 apppusher.2022-06-03-20-1.log
+-rwx------ 1 hadoop hadoop   433582 Jun  9 23:00 apppusher.2022-06-09-22-1.log.gz
+-rwx------ 1 hadoop hadoop 28946432 Jun  9 23:04 apppusher.out
+-rwx------ 1 hadoop hadoop  4514880 Jun  9 23:05 apppusher.log
+[root@ip-10-171-10-15 log]# gzip apppusher.2022-06-*
+gzip: apppusher.2022-06-09-22-1.log.gz already has .gz suffix -- unchanged
+[root@ip-10-171-10-15 log]# ls -ltr
+total 37304
+-rwx------ 1 hadoop hadoop   268446 May 22 12:59 apppusher.2022-05-22-12-1.log.gz
+-rwx------ 1 hadoop hadoop     8228 May 28 04:59 apppusher.2022-05-28-04-2.log.gz
+-rwx------ 1 hadoop hadoop     2514 May 30 10:16 apppusher.2022-05-30-10-1.log.gz
+-rwx------ 1 hadoop hadoop     1222 May 30 10:48 apppusher.2022-05-30-10-2.log.gz
+-rwx------ 1 hadoop hadoop      799 May 30 10:59 apppusher.2022-05-30-10-3.log.gz
+-rwx------ 1 hadoop hadoop   925002 May 30 11:59 apppusher.2022-05-30-11-1.log.gz
+-rwx------ 1 hadoop hadoop   535839 May 30 12:59 apppusher.2022-05-30-12-1.log.gz
+-rwx------ 1 hadoop hadoop   924369 May 30 14:59 apppusher.2022-05-30-14-1.log.gz
+-rwx------ 1 hadoop hadoop   161179 May 30 15:59 apppusher.2022-05-30-15-1.log.gz
+-rwx------ 1 hadoop hadoop   118295 May 30 16:59 apppusher.2022-05-30-16-1.log.gz
+-rwx------ 1 hadoop hadoop     1541 May 30 18:47 apppusher.2022-05-30-18-1.log.gz
+-rwx------ 1 hadoop hadoop      754 May 30 20:52 apppusher.2022-05-30-20-1.log.gz
+-rwx------ 1 hadoop hadoop     1158 May 30 23:03 apppusher.2022-05-30-23-1.log.gz
+-rwx------ 1 hadoop hadoop     9669 May 31 23:59 apppusher.2022-05-31-23-1.log.gz
+-rwx------ 1 hadoop hadoop   344028 Jun  1 13:59 apppusher.2022-06-01-13-1.log.gz
+-rwx------ 1 hadoop hadoop      982 Jun  1 14:59 apppusher.2022-06-01-14-1.log.gz
+-rwx------ 1 hadoop hadoop      763 Jun  1 17:59 apppusher.2022-06-01-17-1.log.gz
+-rwx------ 1 hadoop hadoop     1323 Jun  1 18:48 apppusher.2022-06-01-18-1.log.gz
+-rwx------ 1 hadoop hadoop      927 Jun  3 20:02 apppusher.2022-06-03-20-1.log.gz
+-rwx------ 1 hadoop hadoop   433582 Jun  9 23:00 apppusher.2022-06-09-22-1.log.gz
+-rwx------ 1 hadoop hadoop 28946432 Jun  9 23:04 apppusher.out
+-rwx------ 1 hadoop hadoop  5178137 Jun  9 23:06 apppusher.log
+[root@ip-10-171-10-15 log]# date
+Thu Jun  9 23:06:44 UTC 2022
+[root@ip-10-171-10-15 log]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         47G     0   47G   0% /dev
+tmpfs            47G     0   47G   0% /dev/shm
+tmpfs            47G  1.5M   47G   1% /run
+tmpfs            47G     0   47G   0% /sys/fs/cgroup
+/dev/nvme0n1p1  100G   11G   90G  11% /
+/dev/nvme1n1p1  5.0G  4.9G  177M  97% /emr
+/dev/nvme1n1p2  245G  114G  131G  47% /mnt
+tmpfs           9.3G     0  9.3G   0% /run/user/993
+tmpfs           9.3G     0  9.3G   0% /run/user/989
+tmpfs           9.3G     0  9.3G   0% /run/user/990
+tmpfs           9.3G     0  9.3G   0% /run/user/988
+tmpfs           9.3G     0  9.3G   0% /run/user/983
+tmpfs           9.3G     0  9.3G   0% /run/user/982
+tmpfs           9.3G     0  9.3G   0% /run/user/981
+tmpfs           9.3G     0  9.3G   0% /run/user/985
+tmpfs           9.3G     0  9.3G   0% /run/user/984
+tmpfs           9.3G     0  9.3G   0% /run/user/986
+tmpfs           9.3G     0  9.3G   0% /run/user/994
+tmpfs           9.3G     0  9.3G   0% /run/user/995
+tmpfs           9.3G     0  9.3G   0% /run/user/0
+[root@ip-10-171-10-15 log]# du -a /dir/ | sort -n -r | head -n 20
+du: cannot access ‘/dir/’: No such file or directory
+[root@ip-10-171-10-15 log]# du -a /emr/ | sort -n -r | head -n 20
+5012132 /emr/
+4988720 /emr/apppusher
+4952832 /emr/apppusher/ytsdata
+3352104 /emr/apppusher/ytsdata/audit.log
+1600720 /emr/apppusher/ytsdata/audit.script
+35868   /emr/apppusher/log
+28276   /emr/apppusher/log/apppusher.out
+10208   /emr/logpusher
+9888    /emr/logpusher/db
+9596    /emr/instance-controller
+9500    /emr/logpusher/db/data.log
+8648    /emr/instance-controller/lib
+8608    /emr/instance-controller/lib/info
+7168    /emr/apppusher/log/apppusher.log
+3340    /emr/metricscollector
+3300    /emr/metricscollector/lib/info
+3300    /emr/metricscollector/lib
+628     /emr/instance-controller/log
+424     /emr/apppusher/log/apppusher.2022-06-09-22-1.log.gz
+376     /emr/logpusher/db/data.data
+[root@ip-10-171-10-15 log]# cd /emr/apppusher
+[root@ip-10-171-10-15 apppusher]# ls -ltr
+total 0
+drwx------ 3 hadoop hadoop  18 Sep 27  2021 local
+drwx------ 2 hadoop hadoop  88 Jun  9 23:07 log
+drwx------ 3 hadoop hadoop 101 Jun  9 23:09 ytsdata
+drwx------ 2 hadoop hadoop  27 Jun  9 23:09 run
+drwx------ 3 hadoop hadoop 101 Jun  9 23:09 data
+[root@ip-10-171-10-15 apppusher]# cd ytsdata
+[root@ip-10-171-10-15 ytsdata]# ls -ltr
+total 4952872
+drwx------ 2 hadoop hadoop          6 Sep 27  2021 audit.tmp
+-rwx------ 1 hadoop hadoop 1639134226 Apr 28 07:35 audit.script
+-rwx------ 1 hadoop hadoop        100 Jun  9 23:09 audit.properties
+-rwx------ 1 hadoop hadoop 3432551322 Jun  9 23:09 audit.log
+-rwx------ 1 hadoop hadoop         16 Jun  9 23:10 audit.lck
+[root@ip-10-171-10-15 ytsdata]# du -h
+0       ./audit.tmp
+4.8G    .
+[root@ip-10-171-10-15 ytsdata]# head -20 auditlog
+head: cannot open ‘auditlog’ for reading: No such file or directory
+[root@ip-10-171-10-15 ytsdata]# head -20 audit.log
+/*C5*/SET SCHEMA PUBLIC
+INSERT INTO AUDITINFO VALUES('aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400d1686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f646f6d61696e6c6f672d617070617474656d70745f313633323736323934383936335f323938383330375f30303030303178',191,-1,0,0,FALSE,0,'')
+COMMIT
+DELETE FROM AUDITINFO WHERE LOGLOCATION='aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400d1686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f646f6d61696e6c6f672d617070617474656d70745f313633323736323934383936335f323938383330375f30303030303178'
+INSERT INTO AUDITINFO VALUES('aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400d1686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f646f6d61696e6c6f672d617070617474656d70745f313633323736323934383936335f323938383330375f30303030303178',191,1651131280920,0,0,FALSE,0,'')
+COMMIT
+INSERT INTO AUDITINFO VALUES('aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400f7686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f656e746974796c6f672d74696d656c696e65456e7469747947726f757049645f313633323736323934383936335f323938383330375f6170706c69636174696f6e5f313633323736323934383936335f3239383833303778',70373,-1,0,0,FALSE,0,'')
+COMMIT
+DELETE FROM AUDITINFO WHERE LOGLOCATION='aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400f7686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f656e746974796c6f672d74696d656c696e65456e7469747947726f757049645f313633323736323934383936335f323938383330375f6170706c69636174696f6e5f313633323736323934383936335f3239383833303778'
+INSERT INTO AUDITINFO VALUES('aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400f7686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f656e746974796c6f672d74696d656c696e65456e7469747947726f757049645f313633323736323934383936335f323938383330375f6170706c69636174696f6e5f313633323736323934383936335f3239383833303778',70373,1651131280916,0,0,FALSE,0,'')
+COMMIT
+INSERT INTO AUDITINFO VALUES('aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400f1686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f656e746974796c6f672d74696d656c696e65456e7469747947726f757049645f313633323736323934383936335f323938383330375f6461675f313633323736323934383936335f323938383330375f3178',413604,-1,0,0,FALSE,0,'')
+COMMIT
+DELETE FROM AUDITINFO WHERE LOGLOCATION='aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400f1686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f656e746974796c6f672d74696d656c696e65456e7469747947726f757049645f313633323736323934383936335f323938383330375f6461675f313633323736323934383936335f323938383330375f3178'
+INSERT INTO AUDITINFO VALUES('aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400f1686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f656e746974796c6f672d74696d656c696e65456e7469747947726f757049645f313633323736323934383936335f323938383330375f6461675f313633323736323934383936335f323938383330375f3178',413604,1651131280913,0,0,FALSE,0,'')
+COMMIT
+INSERT INTO AUDITINFO VALUES('aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400d2686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f73756d6d6172796c6f672d617070617474656d70745f313633323736323934383936335f323938383330375f30303030303178',134755,-1,0,0,FALSE,0,'')
+COMMIT
+DELETE FROM AUDITINFO WHERE LOGLOCATION='aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400d2686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f73756d6d6172796c6f672d617070617474656d70745f313633323736323934383936335f323938383330375f30303030303178'
+INSERT INTO AUDITINFO VALUES('aced00057372000c6a6176612e6e65742e555249ac01782e439e49ab0300014c0006737472696e677400124c6a6176612f6c616e672f537472696e673b78707400d2686466733a2f2f69702d31302d3137312d31302d31352e75732d776573742d322e636f6d707574652e696e7465726e616c3a383032302f746d702f656e746974792d66696c652d686973746f72792f6163746976652f6170706c69636174696f6e5f313633323736323934383936335f323938383330372f617070617474656d70745f313633323736323934383936335f323938383330375f3030303030312f73756d6d6172796c6f672d617070617474656d70745f313633323736323934383936335f323938383330375f30303030303178',134755,1651131280909,0,0,FALSE,0,'')
+[root@ip-10-171-10-15 ytsdata]# sudo hdfs dfsadmin -safemode get
+Safe mode is ON
+[root@ip-10-171-10-15 ytsdata]# sudo -u hdfs hdfs dfsadmin -safemode leave
+Safe mode is OFF
+[root@ip-10-171-10-15 ytsdata]# sudo hdfs dfsadmin -safemode get
+Safe mode is OFF
+[root@ip-10-171-10-15 ytsdata]# du -h
+0       ./audit.tmp
+4.8G    .
+[root@ip-10-171-10-15 ytsdata]# du -h ./
+0       ./audit.tmp
+4.8G    ./
+[root@ip-10-171-10-15 ytsdata]# du -h /emr/apppusher/ytsdata
+0       /emr/apppusher/ytsdata/audit.tmp
+4.8G    /emr/apppusher/ytsdata
+[root@ip-10-171-10-15 ytsdata]# du -h /emr/apppusher/ytsdata/
+0       /emr/apppusher/ytsdata/audit.tmp
+4.8G    /emr/apppusher/ytsdata/
+[root@ip-10-171-10-15 ytsdata]# du -h /emr/apppusher/ytsdata/audit.log
+3.2G    /emr/apppusher/ytsdata/audit.log
+[root@ip-10-171-10-15 ytsdata]# ls -ltr
+total 4953296
+drwx------ 2 hadoop hadoop          6 Sep 27  2021 audit.tmp
+-rwx------ 1 hadoop hadoop 1639134226 Apr 28 07:35 audit.script
+-rwx------ 1 hadoop hadoop        100 Jun  9 23:16 audit.properties
+-rwx------ 1 hadoop hadoop 3432987516 Jun  9 23:16 audit.log
+-rwx------ 1 hadoop hadoop         16 Jun  9 23:20 audit.lck
+[root@ip-10-171-10-15 ytsdata]# head -20 audit.script
+SET DATABASE UNIQUE NAME HSQLDB7C2842148B
+SET DATABASE GC 0
+SET DATABASE DEFAULT RESULT MEMORY ROWS 0
+SET DATABASE EVENT LOG LEVEL 0
+SET DATABASE TRANSACTION CONTROL LOCKS
+SET DATABASE DEFAULT ISOLATION LEVEL READ COMMITTED
+SET DATABASE TRANSACTION ROLLBACK ON CONFLICT TRUE
+SET DATABASE TEXT TABLE DEFAULTS ''
+SET DATABASE SQL NAMES FALSE
+SET DATABASE SQL REFERENCES FALSE
+SET DATABASE SQL SIZE TRUE
+SET DATABASE SQL TYPES FALSE
+SET DATABASE SQL TDC DELETE TRUE
+SET DATABASE SQL TDC UPDATE TRUE
+SET DATABASE SQL CONCAT NULLS TRUE
+SET DATABASE SQL UNIQUE NULLS TRUE
+SET DATABASE SQL CONVERT TRUNCATE TRUE
+SET DATABASE SQL AVG SCALE 0
+SET DATABASE SQL DOUBLE NAN TRUE
+SET FILES WRITE DELAY 500 MILLIS
+[root@ip-10-171-10-15 ytsdata]# du -h /emr/apppusher/ytsdata/audit.script
+1.6G    /emr/apppusher/ytsdata/audit.script
+[root@ip-10-171-10-15 ytsdata]# sudo hdfs dfsadmin -safemode get
+Safe mode is OFF
+You have new mail in /var/spool/mail/hadoop
+[root@ip-10-171-10-15 ytsdata]# history
+    1  vi if [ "$SERVICE" = "hiveserver2" ]; then
+    2          export HADOOP_USER_NAME=hadoop
+    3          export HADOOP_HEAPSIZE=16000
+    4  vi /etc/hive/conf/hive-env.sh
+    5  vi   /etc/zookeeper/conf/zoo.cfg
+    6  systemctl stop hive-server2.service
+    7  systemctl start hive-server2.service
+    8  systemctl stop zookeeper-server.service
+    9  systemctl start zookeeper-server.service
+   10  systemctl status hive-server2.service
+   11  system ctlstatus zookeeper-server.service
+   12  systemctl status zookeeper-server.service
+   13  /etc/hive/conf/hive-env.sh
+   14  vi  /etc/hive/conf/hive-env.sh
+   15  systemctl stop hive-server2.service
+   16  systemctl start hive-server2.service
+   17  systemctl stop zookeeper-server.service
+   18  systemctl start zookeeper-server.service
+   19  exit
+   20  ls -l
+   21  cd hive/conf
+   22  ls -la
+   23  cat hive-site.xml
+   24  pwd
+   25  sudo systemctl stop hive-server2
+   26  sudo systemctl stop hive-hcatalog-server
+   27  sudo systemctl start hive-hcatalog-server
+   28  sudo systemctl start hive-server2
+   29  exit
+   30  vi /etc/hive/config/hive-env.sh
+   31  vi /etc/hive/conf/hive-env.sh
+   32  sudo systemctl stop hive-server2
+   33  sudo systemctl stop hive-hcatalog-server
+   34  sudo systemctl start hive-hcatalog-server
+   35  sudo systemctl start hive-server2
+   36  exit
+   37  vi /etc/hive/conf/hive-site.xml
+   38  vi llap.sh
+   39  vi /etc/tez/conf/tez-site.xml
+   40  systemctl stop hive-server2
+   41  exit
+   42  hdfs dfsadmin -safemode get
+   43  exit
+   44  hdfs dfsadmin -safemode get
+   45  exit
+   46  ls
+   47  ls -la
+   48  contab -l
+   49  crontab -l
+   50  exit
+   51  cd /emr
+   52  cd apppusher/log
+   53  ll
+   54  rm -rf apppusher.2022-04-12-19*
+   55  rm -rf apppusher.2022-04-12-20*
+   56  rm -rf apppusher.2022-04-12-21*
+   57  rm -rf apppusher.2022-04-12-22*
+   58  df -h .
+   59  rm -rf apppusher.2022-04-13*
+   60  rm -rf apppusher.2022-04-14*
+   61  df -h .
+   62  rm -rf apppusher.2022-04-15*
+   63  rm -rf apppusher.2022-04-16*
+   64  rm -rf apppusher.2022-04-17*
+   65  rm -rf apppusher.2022-04-18*
+   66  rm -rf apppusher.2022-04-19*
+   67  df -h
+   68  ls -lrth
+   69  rm -rf apppusher.2022-04-20*
+   70  df -h .
+   71  ls -lrth
+   72  rm -rf apppusher.2022-04-21-0*
+   73  ls -lrth
+   74  rm -rf apppusher.2022-04-21-10-1.log apppusher.2022-04-21-11-1.log apppusher.2022-04-21-12-1.log apppusher.2022-04-21-14-1.log apppusher.2022-04-21-15-1.log apppusher.2022-04-21-18-1.log apppusher.2022-04-21-19-1.log apppusher.2022-04-21-20-1.log apppusher.2022-04-21-21-1.log apppusher.2022-04-21-22-1.log apppusher.2022-04-21-23-1.log apppusher.2022-04-22-00-1.log
+   75  ls -lrth
+   76  rm -rf apppusher.2022-04-22-01-1.log apppusher.2022-04-22-04-1.log apppusher.2022-04-22-05-1.log apppusher.2022-04-22-06-1.log apppusher.2022-04-22-07-1.log apppusher.2022-04-22-08-1.log apppusher.2022-04-22-09-1.log apppusher.2022-04-22-10-1.log apppusher.2022-04-22-11-1.log
+   77  ls -lrth
+   78  df -h .
+   79  cp /usr/bin/apppusher /tmp/
+   80  vi /usr/bin/apppusher
+   81  cat /usr/bin/apppusher
+   82   systemctl daemon-reload
+   83   systemctl status apppusher.service
+   84   systemctl stop apppusher.service
+   85   systemctl start apppusher.service
+   86  watch "systemctl status apppusher.service"
+   87  cd /emr/apppusher/log
+   88  ls -lrth
+   89  rm -rf apppusher.2022-04-22*
+   90  rm -rf apppusher.2022-04-23*
+   91  rm -rf apppusher.2022-04-24-0*
+   92  ls -lrth
+   93  rm -rf apppusher.2022-04-24-10-1.log apppusher.2022-04-24-12-1.log apppusher.2022-04-24-13-1.log apppusher.2022-04-24-14-1.log apppusher.2022-04-24-15-1.log apppusher.2022-04-24-17-1.log apppusher.2022-04-24-18-1.log apppusher.2022-04-24-19-1.log
+   94  ls -lrth
+   95  rm -rf apppusher.2022-04-24-20-1.log apppusher.2022-04-24-21-1.log apppusher.2022-04-24-22-1.log apppusher.2022-04-24-23-1.log apppusher.2022-04-25-00-1.log apppusher.2022-04-25-01-1.log
+   96  ls -lrth
+   97  rm -rf apppusher.2022-04-25-02-1.log apppusher.2022-04-25-03-1.log apppusher.2022-04-25-04-1.log apppusher.2022-04-25-05-1.log apppusher.2022-04-25-06-1.log apppusher.2022-04-25-07-1.log apppusher.2022-04-25-10-1.log apppusher.2022-04-25-11-1.log apppusher.2022-04-25-13-1.log apppusher.2022-04-25-14-1.log
+   98  ls -lrth
+   99  df -h .
+  100  rm -f logpusher.log.2022-06-01-05.gz
+  101  rm -f logpusher.log.2022-05-31-22.gz
+  102  rm -f logpusher.log.2022-05-31-23.gz
+  103  rm -f logpusher.log.2022-05-31-17.gz
+  104  rm -f logpusher.log.2022-06-01-13.gz
+  105  du -h
+  106  du -a /dir/ | sort -n -r | head -n 20
+  107  du -a /emr/ | sort -n -r | head -n 20
+  108  cd /emr/apppusher/log
+  109  ls -ltr
+  110  rm -f apppusher.2022-05-21-02-1.log
+  111  rm -f apppusher.2022-05-21-10-1.log
+  112  df -h
+  113  exit
+  114  ls -la
+  115  bash local_log_cleanup_git.sh
+  116  df -h
+  117  cd /emr/apppusher/log
+  118  ls -ltr
+  119  rm -f apppusher.2022-05-30-09-1.log
+  120  rm -f apppusher.2022-05-30-17-1.log
+  121  df -h
+  122  gzip apppusher.2022-05-30-20-1.log
+  123  ls -ltr
+  124  gzip apppusher.2022-05-22-12-1.log
+  125  gzip apppusher.2022-05-28-04-2.log
+  126  gzip apppusher.2022-05-*
+  127  ls -ltr
+  128  gzip apppusher.2022-06-*
+  129  ls -ltr
+  130  date
+  131  df -h
+  132  du -a /dir/ | sort -n -r | head -n 20
+  133  du -a /emr/ | sort -n -r | head -n 20
+  134  cd /emr/apppusher
+  135  ls -ltr
+  136  cd ytsdata
+  137  ls -ltr
+  138  du -h
+  139  head -20 auditlog
+  140  head -20 audit.log
+  141  sudo hdfs dfsadmin -safemode get
+  142  sudo -u hdfs hdfs dfsadmin -safemode leave
+  143  sudo hdfs dfsadmin -safemode get
+  144  du -h
+  145  du -h ./
+  146  du -h /emr/apppusher/ytsdata
+  147  du -h /emr/apppusher/ytsdata/
+  148  du -h /emr/apppusher/ytsdata/audit.log
+  149  ls -ltr
+  150  head -20 audit.script
+  151  du -h /emr/apppusher/ytsdata/audit.script
+  152  sudo hdfs dfsadmin -safemode get
+  153  history
+You have new mail in /var/spool/mail/hadoop
+[root@ip-10-171-10-15 ytsdata]#

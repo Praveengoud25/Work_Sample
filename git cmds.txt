@@ -1,0 +1,11 @@
+git remote add origin https://github.build.ge.com/503309564/Airflow-docs.git
+git init                                                                     
+git remote add origin https://github.build.ge.com/503309564/Airflow-docs.git                                             
+git pull origin main                                                         
+git branch                                                                   
+git branch -M main                                                           
+git branch                                                                   
+git status                                                                   
+git add .                                                                    
+git commit -m "initial docs"                                                
+git push -u origin main

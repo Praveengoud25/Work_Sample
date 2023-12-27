@@ -1,0 +1,59 @@
+how is cluster name defined 
+
+
+soco-2022-mig-split1_Intermediate_Error_Queue to 2022-SOCO-BLPL-Split8_Intermediate_Queue
+------------------------
+
+ERROR QUE MOVING SOP
+
+login to activemq server 10.228.145.117  (ssh 10.228.145.117)
+
+sudo su
+cd /mnt/apache-activemq-5.14.0/bin
+
+./activemq browse --amqurl tcp://localhost:61616  soco-2022-mig-split3_Intermediate_Error_Queue > soco-2022-mig-split2_Intermediate_Error_Queue.txt
+
+##aws s3 cp soco-2022-mig-split2_Intermediate_Error_Queue.txt s3://ge-engineering/vamsheetest/queues/
+
+sed '/No IHA files are found to contain time series data specified in the queries/{N;N;N;d;}' soco-2022-mig-split2_Intermediate_Error_Queue.txt > soco-2022-mig-split2_Intermediate_Error_Queue_250922_Filtered.txt 
+
+cat soco-2022-mig-split2_Intermediate_Error_Queue_250922_Filtered.txt | grep JMS_BODY_FIELD:JMSText > soco-2022-mig-split2_Intermediate_Error_Queue_250922_Filtered_JMSText.txt
+
+sed -ie 's/JMS_BODY_FIELD:JMSText = //g' soco-2022-mig-split2_Intermediate_Error_Queue_250922_Filtered_JMSText.txt
+
+aws s3 cp soco-2022-mig-split2_Intermediate_Error_Queue_250922_Filtered_JMSText.txt  s3://ge-engineering/vamsheetest/queues/
+
+
+======================
+##### ssh pravin@10.228.156.50 --- for insert messages and final parqet
+final parqet process:-
+
+sudo su
+
+cd /mnt/phhd_spark/Clients/InsertMessages
+
+###change the que names
+aws s3 cp s3://ge-engineering/vamsheetest/queues/soco-2022-mig-split2_Intermediate_Error_Queue.txt .
+
+sed '/No IHA files are found to contain time series data specified in the queries/{N;N;N;d;}' soco-2022-mig-split1_Intermediate_Error_Queue.txt > soco-2022-mig-split1_Intermediate_Error_Queue_250922_Filtered.txt 
+
+cat soco-2022-mig-split2_Intermediate_Error_Queue_250922_Filtered.txt | grep JMS_BODY_FIELD:JMSText > soco-2022-mig-split2_Intermediate_Error_Queue_250922_Filtered_JMSText.txt
+
+sed -ie 's/JMS_BODY_FIELD:JMSText = //g' soco-2022-mig-split_Intermediate_Error_Queue_250922_Filtered_JMSText.txt
+
+aws s3 cp soco-2022-mig-split1_Intermediate_Error_Queue_250922_Filtered_JMSText.txt s3://ge-engineering/Automation/Intermediate_Job_XML/2022/2022-soco-blpl/
+
+
+	
+
+============================================
+
+###### 
+cp soco-2022-mig-split1_Intermediate_Error_Queue_250922_Filtered_JMSText.txt messages.txt
+
+./insertScript.sh  2022-SOCO-BLPL-Split8_Intermediate_Queue
+
+ctrl+c
+
+wc -l messages.txt = 92 messages
+===============================

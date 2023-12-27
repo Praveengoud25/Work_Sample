@@ -1,0 +1,90 @@
+yR9QSUfkHtchpGw9VymRALhz
+
+d6bc9320979c4396b664da7451feca38 prod
+
+
+compaction-status-db, ANlytics emr: mysql -h compaction-status-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -u compaction_status -pyR9QSUfkHtchpGw9VymRALhz
+
+compaction-status-backfill-db, HIve emr: mysql -h compaction-status-backfill-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -u analytic_status -pyR9QSUfkHtchpGw9VymRALhz
+
+Able to connect to both 
+
+Able to see the databases and table names and there sizes documented them.
+
+Now i need to migrate one table from compaction-status-backfill-db  to  compaction-status-db.
+
+
+=================
+migrate checking number of rows and coulmns.
+
+rows: select count(*) from hive_partitions;
+
+DDL/columns: show create table hive_partitions\G;
+
+compaction assets_not_found
+
+Pull Db:
+	mysqldump -u analytic_status -h compaction-status-backfill-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction assets_not_found > assets_not_found.sql
+	
+upload to new db
+
+	mysql -u  compaction_status -h compaction-status-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction < hive_partitions.sql 
+
+
+Tables in old db which need to be migrated.
+ 
+assets_not_found: pulled table need to backup.
+config: 
+hive_partitions: Done
+job_status:
+operation_error:
+parquet_file_csv_files: No need
+parquet_files:
+temp_csv_files:
+
+===
+cmds to pull backup
+
+mysqldump -u analytic_status -h compaction-status-backfill-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction assets_not_found > assets_not_found.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+for o=pswd check with prvn or dj.
+
+mysqldump -u analytic_status -h compaction-status-backfill-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction config > config.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysqldump -u analytic_status -h compaction-status-backfill-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction job_status > job_status.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysqldump -u analytic_status -h compaction-status-backfill-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction operation_error > operation_error.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysqldump -u analytic_status -h compaction-status-backfill-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction parquet_files > parquet_files.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysqldump -u analytic_status -h compaction-status-backfill-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction temp_csv_files > temp_csv_files.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+====
+cmds to apply dump.
+mysql -u  compaction_status -h compaction-status-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction < assets_not_found.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysql -u  compaction_status -h compaction-status-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction < config.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysql -u  compaction_status -h compaction-status-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction < job_status.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysql -u  compaction_status -h compaction-status-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction < operation_error.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysql -u  compaction_status -h compaction-status-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction < parquet_files.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+mysql -u  compaction_status -h compaction-status-db.cluster-cf5nnjx3u9dx.us-west-2.rds.amazonaws.com -p compaction < temp_csv_files.sql
+yR9QSUfkHtchpGw9VymRALhz
+
+
+
+

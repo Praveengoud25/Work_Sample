@@ -1,0 +1,27 @@
+1. First Find the credinatials of old rds writer instance.
+
+2. Next check from which instance we can login into that RDS.
+
+3. In that instance create a new folder for the process: mkdir db_migration
+
+4. cd db_migration
+
+5. we need check the rows and columns of each table and take screen shots to re-check it after migration.
+
+6. we need to run mysqldump cmds to pull each table dump to local.
+
+7. upload them to s3 if rds's are in diffrent VPC or else we can upload from same instance into new RDS by checking connection test once.
+
+8. if needed login into a other instance where we can connect to new RDS
+
+9. download all the dumps uploaded to the s3 in step 3
+
+10. next create Databases, Application owner will create it.
+
+11. apply the dumps to the compaction database.
+
+12. validate the number of rows and columns in new RDS the same which we done at step 1.
+
+
+check 
+select * from assets_not_found order by 1 limit 10;

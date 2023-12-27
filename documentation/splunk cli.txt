@@ -1,0 +1,3 @@
+index="us_west_prod_power_platform" sourcetype="spark:metric" source="distributor-aur-pr" host="spark-aurora-metrics-pr" metricName="HRTBT_LHIST_METRIC_DF_AUR" zoneId="2220abf1-cb0d-4ca3-913a-4613a47b6992" osmZoneId=*  assetId=*
+
+index="us_west_prod_power_platform" sourcetype="spark:metric" source="distributor-aur-pr" host="spark-aurora-metrics-pr" metricName="HRTBT_LHIST_METRIC_DF_AUR" zoneId="2220abf1-cb0d-4ca3-913a-4613a47b6992" assetId=ITTRNGENV02A

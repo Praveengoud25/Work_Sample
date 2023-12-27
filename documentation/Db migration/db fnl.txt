@@ -1,0 +1,39 @@
+in old rds.
+analyze the tables.
+	ex: analyze table Db_name.table_name;
+
+total tables data 
+	cmd.
+
+validating current tbale data.
+show records under a table.
+	desc table_name;
+	select * from table_name order by 1 limit 10;
+	select count(*) from table_name;
+	show create table table_name\G;
+
+Pull dump 
+	
+
+====
+
+In new rds
+remove tables in new rds.
+	drop table  temp_csv_files;
+
+
+show records under a table.
+	select * from temp_csv_files order by 1 limit 10;
+to get last row:  select * from job_status order by job_id desc limit 1;
+
+
+How to enter records into table with out spceifying primary id.
+
+INSERT INTO  job_status (compaction_type, compactor_name, compactor_url, time_of_execution_in_sec, status, number_of_files_processed, remarks, created_by,  created_on, updated_by, updated_on)
+
+VALUES ('RAW', 'CSV_COMPACTOR_WORKER', NULL, 50, 'c', NULL, 'Completed', 'CSV_COMPACTOR_WORKER', '2023-10-27 21:14:47', 'CSV_COMPACTOR_WORKER', '2023-10-27 21:15:37');
+
+
+Lets take one table "job_status" comeplte testing and we can do same to all other.
+
+

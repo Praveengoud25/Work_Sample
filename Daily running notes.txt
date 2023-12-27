@@ -1,0 +1,213 @@
+Please contact the team below according to GEKB2022349 :
+
+@Digital IAM Team
+===
+
+chmod 400 /home/lh309564/.ssh/id_rsa
+
+10.228.156.50 
+/var/Clients/duplicateDataDeletion/
+
+lh309564@10.157.136.53
+Praveen@2024P
+
+
+
+tail -5 /var/Clients/duplicateDataDeletion/output/dupData-output-3.csv
+
+ls /var/Clients/duplicateDataDeletion/inputs/
+vi /var/Clients/duplicateDataDeletion/inputs/
+
+-==============
+show partitions gep_data_v2.assetid_298657 partition (assetid='298657',date_stamp='20230209');
+
+DESCRIBE gep_data_v2.assetid_SY0158745;
+=======================
+task for backfill dup deletion
+task for winscp - done
+
+
+=======================
+Script must ensure all L3 team have access to all instances in PROD: new and existing 
+
+able to add a new member to L3 team  and get same access
+
+test using Airflow ec2 instance
+
+	i-007dd9420ea92dc31
+	
+AmazonEC2RoleforSSM
+AmazonSSMManagedInstanceCore
+
+-----
+sudo su ubuntu
+
+cd
+
+aws s3 cp s3://stag-gep-bootstrap/analytics/user_access/L2_sshkeys.txt .
+
+sudo cat L2_sshkeys.txt >> /home/ubuntu/.ssh/authorized_keys
+
+cat /home/ubuntu/.ssh/authorized_keys 
+
+
+==========
+
+[root@ip-10-171-1-149 local]# cat inputs.conf
+
+[default]
+host=spark-aurora-metrics-pr
+[monitor:///var/log/hadoop-yarn/containers/.../splunk_metrics.log]
+queueSize=4MB
+source=distributor-aur-pr
+sourcetype=spark:metric
+index=us_west_prod_power_platform
+crcSalt=<SOURCE>
+
+=========
+
+[default]
+host=spark-aurora-metrics-dev
+[monitor:///var/log/hadoop-yarn/containers/.../splunk_metrics.log]
+queueSize=4MB
+source=distributor-aur-dev
+sourcetype=spark:metric
+index=us_west_dev_power_platform
+crcSalt=<SOURCE>
+
+============
+dev:
+index="us_west_dev_power_platform" sourcetype="spark:metric" source="distributor-aur-dev" host="spark-aurora-metrics-dev" metricName="HRTBT_LHIST_METRIC_DF_AUR"
+
+prod:
+index="us_west_prod_power_platform" sourcetype="spark:metric" source="distributor-aur-pr" host="spark-aurora-metrics-pr" metricName="HRTBT_LHIST_METRIC_DF_AUR"
+
+================
+genie instance
+[default]
+[monitor:///opt/genie/tmp/jobs/.../splunk_metrics.log*]
+queueSize=4MB
+sourcetype=spark:metric
+index=us_west_dev_power_platform
+
+===================
+[default]
+host=spark-aurora-metrics-dev
+[monitor:///var/log/hadoop-yarn/containers/.../splunk_metrics.log]
+queueSize=4MB
+source=distributor-aur-dev
+sourcetype=spark:metric
+index=us_west_dev_power_platform
+crcSalt=<SOURCE>
+==============
+
+
+tail -5 /var/Clients/duplicateDataDeletion/output/dupData-output-3.csv
+
+ls /var/Clients/duplicateDataDeletion/inputs/
+vi /var/Clients/duplicateDataDeletion/inputs/
+
+-==============
+show partitions gep_data_v2.assetid_298657 partition (assetid='298657',date_stamp='20230209');
+
+DESCRIBE gep_data_v2.assetid_298657;
+
+assetid_SY0158744
+assetid_SY1016800
+=======================
+task for backfill dup deletion
+task for winscp - done
+
+
+=======================
+Script must ensure all L3 team have access to all instances in PROD: new and existing 
+
+able to add a new member to L3 team  and get same access
+
+test using Airflow ec2 instance
+
+	i-007dd9420ea92dc31
+	
+AmazonEC2RoleforSSM
+AmazonSSMManagedInstanceCore
+
+-----
+sudo su ubuntu
+
+cd
+
+aws s3 cp s3://stag-gep-bootstrap/analytics/user_access/L2_sshkeys.txt .
+
+sudo cat L2_sshkeys.txt >> /home/ubuntu/.ssh/authorized_keys
+
+cat /home/ubuntu/.ssh/authorized_keys 
+
+
+==========
+
+[root@ip-10-171-1-149 local]# cat inputs.conf
+[default]
+host=spark-aurora-metrics-pr
+[monitor:///var/log/hadoop-yarn/containers/.../splunk_metrics.log]
+queueSize=4MB
+source=distributor-aur-pr
+sourcetype=spark:metric
+index=us_west_prod_power_platform
+crcSalt=<SOURCE>
+
+=========
+
+[default]
+host=spark-aurora-metrics-dev
+[monitor:///var/log/hadoop-yarn/containers/.../splunk_metrics.log]
+queueSize=4MB
+source=distributor-aur-dev
+sourcetype=spark:metric
+index=us_west_dev_power_platform
+crcSalt=<SOURCE>
+
+============
+dev:
+index="us_west_dev_power_platform" sourcetype="spark:metric" source="distributor-aur-dev" host="spark-aurora-metrics-dev" metricName="HRTBT_LHIST_METRIC_DF_AUR"
+
+prod:
+index="us_west_prod_power_platform" sourcetype="spark:metric" source="distributor-aur-pr" host="spark-aurora-metrics-pr" metricName="HRTBT_LHIST_METRIC_DF_AUR"
+
+================
+genie instance
+[default]
+[monitor:///opt/genie/tmp/jobs/.../splunk_metrics.log*]
+queueSize=4MB
+sourcetype=spark:metric
+index=us_west_dev_power_platform
+
+===================
+[default]
+host=spark-aurora-metrics-dev
+[monitor:///var/log/hadoop-yarn/containers/.../splunk_metrics.log]
+queueSize=4MB
+source=distributor-aur-dev
+sourcetype=spark:metric
+index=us_west_dev_power_platform
+crcSalt=<SOURCE>
+==============
+
+Dev bootstrap tf vs live.
+MND cases :flat line. other tickets too re-check. MND-20230824-0686-001 - can be closed. done.
+Compaction KT. _ done
+
+
+Need to check how EMR pulls data from TS db: headers are defined in genie task. /opt/genie/tmp/jobs/$taskid/stdout 
+
+
+assetid_SY1016800
+assetid_SY0158744
+
+
+808643 : 2023-09-05 22:35:21
+
+
+SPARK_ANALYTIC_QUERY_METRIC_AUR
+
+
+chage -m 0 -M 99999 -I -1 -E -1 223041787
