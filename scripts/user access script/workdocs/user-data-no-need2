@@ -1,0 +1,22 @@
+#need cronie to configure cronjobs
+
+yum install -y cronie 
+mkdir /opt/scripts
+#Need few files so creating them
+touch opt/scripts/user_access_sync.sh
+touch /etc/cron.d/user_access_sync
+
+#adding the file content for cronjob 
+cat << EOF > "user_access_sync"
+*/1 * * * * root /opt/scripts/user_access_sync.sh
+EOF
+
+#preparing the script
+cat <<EOF > "/opt/scripts/user_access_sync.sh"
+#!/bin/bash
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+aws s3 sync s3://_path_of_authorized keys  /home/$user_name/.ssh/ --exact-timestamps
+EOF
+
+#adding permmisions for execution
+chmod +x /opt/scripts/user_access_sync.sh

@@ -1,0 +1,90 @@
+Worker1
+
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.51.80
+The authenticity of host '10.201.51.80 (10.201.51.80)' can't be established.
+ECDSA key fingerprint is 52:05:33:d5:f6:6f:ed:5d:00:7d:2e:2e:72:23:4d:43.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.201.51.80' (ECDSA) to the list of known hosts.
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Last login: Fri Apr  8 20:03:19 2022 from ip-10-8-0-237.us-west-2.compute.internal
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-10-201-51-80 ~]$ sudo su
+[root@ip-10-201-51-80 ec2-user]# service airflow-worker status
+Status of airflow-worker: [ STOPPED ]
+[root@ip-10-201-51-80 ec2-user]# service airflow-webserver status
+Status of airflow-webserver: [ RUNNING ]
+[root@ip-10-201-51-80 ec2-user]# service airflow-flower status
+Status of airflow-flower: [ RUNNING ]
+[root@ip-10-201-51-80 ec2-user]# cd /opt/airflow/logs/
+[root@ip-10-201-51-80 logs]# ls
+scheduler  webserver.log  webserver.log.2022-05-11.gz
+[root@ip-10-201-51-80 logs]# service airflow-worker start
+Starting airflow-worker...
+Status of airflow-worker: [ RUNNING ]
+[root@ip-10-201-51-80 logs]# ls
+scheduler  webserver.log  webserver.log.2022-05-11.gz  worker.log
+[root@ip-10-201-51-80 logs]#
+
+########################################################################
+Worker2
+
+
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.22.151
+The authenticity of host '10.201.22.151 (10.201.22.151)' can't be established.
+ECDSA key fingerprint is 6f:dd:f9:07:f7:a2:07:58:a6:f2:60:90:15:d4:60:a3.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.201.22.151' (ECDSA) to the list of known hosts.
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Last login: Fri Apr  8 20:13:09 2022 from ip-10-8-0-237.us-west-2.compute.internal
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-10-201-22-151 ~]$ sudo su
+[root@ip-10-201-22-151 ec2-user]#
+[root@ip-10-201-22-151 ec2-user]# service airflow-worker status
+Status of airflow-worker: [ STOPPED ]
+[root@ip-10-201-22-151 ec2-user]# service airflow-webserver status
+Status of airflow-webserver: [ RUNNING ]
+[root@ip-10-201-22-151 ec2-user]# service airflow-flower status
+Status of airflow-flower: [ RUNNING ]
+[root@ip-10-201-22-151 ec2-user]# cd /opt/airflow/logs/
+[root@ip-10-201-22-151 logs]# ls
+scheduler  Spark-Post-Processor-Application-Monitor  webserver.log  webserver.log.2022-05-11.gz
+[root@ip-10-201-22-151 logs]# service airflow-worker start
+Starting airflow-worker...
+Status of airflow-worker: [ RUNNING ]
+[root@ip-10-201-22-151 logs]# ls
+scheduler  Spark-Post-Processor-Application-Monitor  webserver.log  webserver.log.2022-05-11.gz  worker.log
+[root@ip-10-201-22-151 logs]#
+
+########################################################################
+Scheduler
+
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.72.181
+The authenticity of host '10.201.72.181 (10.201.72.181)' can't be established.
+ECDSA key fingerprint is 55:15:b2:2c:7e:cc:52:3b:65:53:d1:d0:45:26:c2:5c.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.201.72.181' (ECDSA) to the list of known hosts.
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Last login: Fri Apr  8 19:51:40 2022 from ip-10-8-0-237.us-west-2.compute.internal
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-10-201-72-181 ~]$ sudo su
+[root@ip-10-201-72-181 ec2-user]# service airflow-scheduler status
+Status of airflow-scheduler: [ RUNNING ]
+[root@ip-10-201-72-181 ec2-user]#

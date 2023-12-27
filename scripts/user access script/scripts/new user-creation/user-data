@@ -1,0 +1,25 @@
+#!/bin/bash -xe
+# Script for user access update
+export PATH="/usr/local/bin:$PATH"
+sudo yum install cronie -y
+
+aws s3 cp s3://install-scripts1/user-access-setup.sh ./user-access-setup.sh --region us-west-2
+aws s3 cp s3://install-scripts1/Create_user.sh ./Create_user.sh --region us-west-2
+chmod a+x ./Create_user.sh
+#User creation script
+sudo ./Create_user.sh \
+    "pdf_user" \
+    "ec2-user"
+
+#User access sync script
+chmod a+x ./user-access-setup.sh
+sudo ./user-access-setup.sh \
+    "ssh-key-btsrp" \
+    "ec2-user" \
+    "pdf_user" \
+    "/opt/scripts/user_access_script" \
+    "/etc/cron.d/L3_access_sync" \
+    "us-west-2"
+sudo systemctl restart crond
+rm -rf user-access-setup.sh
+rm -rf Create_user.sh

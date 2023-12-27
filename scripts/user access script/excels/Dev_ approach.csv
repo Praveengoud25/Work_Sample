@@ -1,0 +1,13 @@
+Instance_name,Scaling type,User data applied ,User sync script applied,User data Sync with TF templates,Approach
+genie,ASG,Yes,Yes,No,Manually
+zookpr-as-asg-0,ASG,Yes,Yes,No,Manually
+zookpr-as-asg-1,ASG,Yes,Yes,No,Manually
+zookpr-as-asg-2,ASG,Yes,Yes,No,Manually
+Airflow scheduler,ASG,Not applied,SSM is used to login,Not Applicable as SSM is used to login,
+Airflow worker,ASG,Not applied,SSM is used to login,Not Applicable as SSM is used to login,
+usw02-dev-pwr-ssm,Non_ASG,Yes,Not applied,Could not find TF script for this resource,Manually
+usw02-dev-power-provisioner,Non_ASG,Not applied,Not applied,Na,Run User data script in a instance and Convert it to AMI
+MD-Linux-Consumer,Non_ASG,Not applied,Not applied,Na,Run User data script in a instance and Convert it to AMI
+EMR emr-analytic-batch-blue,EMR,Yes,Yes,Yes,"BootStrap script is in S3, it can be updated and used to new instances."
+EMR emr-analytic-services-blue,EMR,Yes,Yes,Yes,"BootStrap script is in S3, it can be updated and used to new instances."
+EMR time-series-dev-ha-blue-TEST,EMR,Yes,Yes,Yes,"BootStrap script is in S3, it can be updated and used to new instances."

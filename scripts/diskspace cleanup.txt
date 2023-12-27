@@ -1,0 +1,46 @@
+10.181.20.5 shceduler
+sudo systemctl status airflow-scheduler
+/opt/airflow/scripts/restart_scheduler.sh >> /tmp/cron_restart_scheduler.log
+crontab -l
+
+
+Steps :-
+
+logged into nodes  PDF-EMR_10.171.9.116, PDF-EMR_10.171.9.233, PDF-EMR_10.171.9.111.
+checked the space usage  df -h cmd seen that /mnt is used upto 92% 
+cd /mnt   , du -hs * 2>/dev/null | grep G , seen hdfs folder is of 213Gb 
+throuhly checked and found logs were posted into /mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/finalized/subdir0 "  directory
+using ls -lrt >> log.txt ,  grep "Sep 17" log.txt seen many logs were there which were posted on sep 17 removed them 
+find /mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/ -type f -mtime +2 -exec rm -rf {} \;  cmd which removes data of two days older and before of it 
+and emr nodes came to normal 
+
+
+PDF-EMR_10.171.9.116, PDF-EMR_10.171.9.233, PDF-EMR_10.171.9.111.
+
+find  /mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/ -type f -mtime +0 -exec ls -lrt {} \; >> list.txt
+
+grep "" list.txt >> del.txt
+
+
+find /mnt/ -mtime +2 -delete
+
+du -hs * 2>/dev/null | grep G
+
+/mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/finalized/subdir0
+
+find  /mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/ -type f -mtime +1 -exec ls -lrt {} \;
+
+/mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/
+
+find /path/to/files* -mtime +5 -exec rm {} \; 
+
+find /mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/ -type f -mtime +2 -exec ls -lrt {} \; 
+
+
+find /mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/ -type f -mtime +2 -exec ls -lrt {} \; >>  list.txt
+
+cut -f 9- -d ' '  list.txt > list
+
+
+
+find /mnt/hdfs/current/BP-416593017-10.171.9.240-1652392016314/current/ -type f -mtime +2 -exec rm -rf {} \;

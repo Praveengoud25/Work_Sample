@@ -1,0 +1,102 @@
+
+parquetFilePath = "s3a://gep-dev-customer-data-replication/dec2660c-af3a-4d19-99b3-8181579c46a3/assetid=296301/year=2023/month=5/day=18/"
+daywiseparquet=spark.read.parquet(parquetFilePath)
+
+###Class org.apache.hadoop.fs.s3a.S3AFileSystem not found
+haddop dir /etc/hadoop/conf
+spark dir /etc/spark/conf
+jars location: /usr/lib/spark/jars
+
+hadoop-aws - 
+aws-java-sdk - /usr/share/aws/aws-java-sdk
+
+
+ip-10-170-1-72 conf.empty]# whereis spark
+home dir /etc/spark/conf
+jars location: /usr/lib/spark/jars
+
+
+hadoop-aws-3.2.1-amzn-3.1.jar
+ 
+
+sudo wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.1/hadoop-aws-3.2.1.jar
+sudo wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk/1.12.487/aws-java-sdk-1.12.487.jar
+sudo wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-yarn-common/3.2.1/hadoop-yarn-common-3.2.1.jar
+
+Class org.apache.hadoop.fs.s3a.S3AFileSystem not found
+
+pyspark --version
+
+[root@ip-10-170-1-72 jars]# mv hadoop-yarn-common-3.2.1-amzn-3.1.jar  hadoop-yarn-common-3.2.1-amzn-3.1.jar.bckp
+
+/etc/hadoop/conf/hadoop-env.sh
+ hadoop_add_to_classpath_tools hadoop-aws
+spark.jars.packages                com.amazonaws:aws-java-sdk:1.11.375,org.apache.hadoop:hadoop-aws-3.2.1.jar
+
+pyspark --packages com.amazonaws:aws-java-sdk:1.12.487,org.apache.hadoop:hadoop-aws-3.2.1.jar
+
+
+sudo systemctl restart  hadoop-yarn-resourcemanager
+sudo systemctl restart hadoop-hdfs-namenode
+
+spark version 3.4.0 need to download jars related to S3
+
+spark-submit --jars /usr/lib/spark/jars/hadoop-aws-3.2.1.jar --class pyspark.sql.session.SparkSession  
+
+pyspark --packages com.amazonaws:aws-java-sdk:1.12.487,org.apache.hadoop:hadoop-aws:3.2.1
+
+spark.jars.packages                com.amazonaws:aws-java-sdk:1.12.487,org.apache.hadoop:hadoop-aws:3.2.1
+
+
+[root@ip-10-170-1-72 conf.dist]# aws sts get-caller-identity
+{
+    "Account": "011821064023",
+    "UserId": "AROAQFQEXD5LS22OQTI3O:i-0440e95aaecd907a1",
+    "Arn": "arn:aws:sts::011821064023:assumed-role/time-series-dev_common/i-0440e95aaecd907a1"
+}
+
+fs.s3a.aws.credentials.provider
+
+/etc/hadoop/conf/
+<property>
+	<name>fs.s3a.aws.credentials.provider</name>
+	<value>org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider</value>
+</property>
+<property>
+	<name>fs.s3a.aws.credentials.provider.arn</name>
+	<value>arn:aws:iam::011821064023:role/time-series-dev_common</value>
+</property>
+<property>
+	<name>fs.s3a.aws.credentials.provider.session.name</name>
+	<value>SparkS3</value>
+</property>
+
+
+aws-java-sdk-1.12.487.jar
+hadoop-yarn-common-3.2.1.jar
+hadoop-aws-3.2.1.jar
+
+pyspark --packages com.amazonaws:aws-java-sdk:1.12.487,org.apache.hadoop:hadoop-aws:3.2.1
+spark.jars.packages     com.amazonaws:aws-java-sdk:1.12.487,org.apache.hadoop:hadoop-aws:3.2.1
+
+spark.hadoop.fs.s3a.assumed.role.arn  arn:aws:iam::011821064023:role/time-series-dev_common
+
+spark.hadoop.fs.s3a.assumed.role.session.name  SparkS3
+
+spark.hadoop.fs.s3a.aws.credentials.provider', 'org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider
+
+
+
+Class org.apache.hadoop.fs.s3a.auth.IAMInstanceCredentialsProvider not found
+
+
+<property>
+  <name>fs.s3a.aws.credentials.provider</name>
+  <value>org.apache.hadoop.fs.s3a.AssumedRoleCredentialProvider</value>
+  <value>org.apache.hadoop.fs.s3a.auth.AssumedRoleCredentialProvider</value>
+</property>
+
+<property>
+  <name>fs.s3a.assumed.role.arn</name>
+  <value>arn:aws:iam::90066806600238:role/s3-restricted</value>
+</property>

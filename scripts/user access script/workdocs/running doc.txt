@@ -1,0 +1,209 @@
+SSM automation
+
+
+ssh ec2-user@10.171.3.125
+
+need to keep some scripts in ec2 and use in cron job , 
+what would be best place to store them in ec2 = /opt/scripts
+
+
+=====
+
+#cronjob timing content in /etc/cron.d/user_access_sync
+[ec2-user@ip-10-171-3-125 opt]$ cat /etc/cron.d/user_access_sync
+*/1 * * * * root /opt/genie/user_access_scripts/user_access_sync.sh
+
+#where the scripts will be stored
+/opt/genie/user_access_scripts/user_access_sync.sh (scripts pulls from S3)
+
+s3 location where the ssh keys are stored: s3://usw02-pr-pwr-s3-bootstrap/analytics/user_access/usw02-prod-pwr-genie-ds/
+keys where they gets pasted to local location: /home/ec2-user/.ssh/
+
+#script content 
+#!/bin/bash
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+aws s3 sync s3://usw02-pr-pwr-s3-bootstrap/analytics/user_access/usw02-prod-pwr-genie-ds/ /home/ec2-user/.ssh/ --exact-timestamps --region us-west-2
+
+========
+#!/bin/sh
+#user data content for user access.
+yum install -y cronie 
+mkdir /opt/scripts
+touch opt/scripts/user_access_sync.sh
+
+#variables
+s3_loc="s3://ssh-key-btsrp/authorized_keys"
+useraccessloc="/opt/scripts/user_access_sync.sh"
+cronjobloc="/etc/cron.d/user_access_sync"
+auth_file="/home/ec2-user/.ssh"
+
+cat << EOF > "$cronjobloc"
+*/1 * * * * root /opt/scripts/user_access_sync.sh
+EOF
+chmod +x "$cronjobloc"
+
+#!/bin/bash
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+aws s3 sync $s3_loc $auth_file --exact-timestamps
+EOF
+
+chmod a+x "$useraccessloc"
+
+
+
+=====
+
+#!/bin/sh
+
+#user data content for user access.
+yum install -y cronie 
+mkdir /opt/scripts
+touch opt/scripts/user_access_sync.sh
+
+#finding the usernames
+ls /home > username.txt
+
+#using the usernames and iterate the script
+file=username.txt
+for username in `cat $file`
+do
+echo "$username"
+
+#variables
+s3_loc="s3://ssh-key-btsrp/authorized_keys"
+useraccessloc="/opt/scripts/user_access_sync.sh"
+cronjobloc="/etc/cron.d/user_access_sync"
+auth_file="/home/$username/.ssh"
+
+cat << EOF > "$cronjobloc"
+*/1 * * * * root /opt/scripts/user_access_sync.sh
+EOF
+chmod +x "$cronjobloc"
+
+#!/bin/bash
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+aws s3 sync $s3_loc $auth_file --exact-timestamps
+EOF
+
+
+=======
+
+genric : /$user/.ssh/authorized_keys
+
+airflow and hadoop.
+
+----------------
+
+
+https://devcloud.swcoe.ge.com/devspace/display/XGRDH/User+access+script+deployment+into+ec2%27s+using+user-data+method
+
+we have user access script in userdata script, it points into ec2 /home/$username/.ssh/ dir 
+this script pulls data from a s3 bucket 
+
+
+#cronjob timing content in /etc/cron.d/user_access_sync
+[ec2-user@ip-10-171-3-125 opt]$ cat /etc/cron.d/user_access_sync
+*/1 * * * * root /opt/genie/user_access_scripts/user_access_sync.sh
+
+#where the scripts will be stored
+/opt/genie/user_access_scripts/user_access_sync.sh (scripts pulls from S3)
+
+s3 location where the ssh keys are stored: s3://usw02-pr-pwr-s3-bootstrap/analytics/user_access/usw02-prod-pwr-genie-ds/
+keys where they gets pasted to local location: /home/ec2-user/.ssh/
+
+
+=============
+
+
+#need cronie to configure cronjobs
+yum install -y cronie 
+mkdir /opt/scripts
+
+
+touch opt/scripts/user_access_sync.sh
+touch /etc/cron.d/user_access_sync
+
+cat << EOF > "user_access_sync"
+*/1 * * * * root /opt/scripts/user_access_sync.sh
+EOF
+
+cat <<EOF > "/opt/scripts/user_access_sync.sh"
+#!/bin/bash
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+aws s3 sync s3://_path_of_authorized keys  /home/$user_name/.ssh/ --exact-timestamps
+EOF
+
+
+cat > /tmp/airflow/airflow_bootstrap.sh <<EOH
+#!/bin/bash -xe
+AWS_REGION="$(curl -s http://instance-data/latest/meta-data/placement/availability-zone/|sed 's/.$//')"
+source /tmp/airflow/install_parameters.cfg
+aws s3 sync s3://\$S3_BOOTSTRAP_BUCKET/analytics/airflow/bootstrap /tmp/airflow/bootstrap --delete --region \$AWS_REGION
+chmod 00750 /tmp/airflow/bootstrap/install.sh
+/tmp/airflow/bootstrap/install.sh
+
+EOH
+-=================
+EMR - 
+GEnie - 
+airflow - 
+
+Sshkeys_store: authorized_keys (keys)
+
+
+==============================
+Need to prepare script for creating new user and add permissions to switch to non-sudo user 
+
+
+============
+
+-------------------------
+#script which runs for 25 sec's
+
+#!bin/bash
+
+echo hi testing cron job
+
+now=$(date)
+echo $now
+cat >> /home/ec2-user/praveen/user_data/test.txt  <<EOH
+$now this is test script line 1
+EOH
+sleep 40
+cat >> /home/ec2-user/praveen/user_data/test.txt  <<EOH
+$now this is test script line 2
+EOH
+
+
+#cron job which runs for 25 sec
+echo "*/1 * * * * root /home/ec2-user/praveen/user_data/test.sh" > /etc/cron.d/test_cron
+chmod 006 /etc/cron.d/test_cron
+chown root:root /etc/cron.d/test_cron
+-================
+#kill script to kill above script if runs more then 30 sec's
+#!bin/bash
+echo hi this is to kill cron job
+now=$(date)
+echo $now
+pid=$(pgrep -f "test.sh")
+echo $pid
+
+cat >> /home/ec2-user/praveen/user_data/kill.txt  <<EOH
+$now this is Kill script line 1
+EOH
+sleep 10
+echo Checking test job is running or not
+sudo kill -9 $pid
+
+cat >> /home/ec2-user/praveen/user_data/kill.txt  <<EOH
+$now this is Kill script line 2
+EOH
+
+--------------------------
+echo "*/1 * * * * root /home/ec2-user/praveen/user_data/cron_kill.sh" > /etc/cron.d/kill_cron
+
+=================
+pgrep -f test.sh
+pgrep -f cron_kill.sh
+sudo systemctl restart crond
+tail -10 /var/log/cron

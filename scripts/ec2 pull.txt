@@ -1,0 +1,25 @@
+aws sts get-caller-identity
+
+aws sts get-caller-identity --profile=
+
+aws ec2 describe-instances --profile=867396380247_mnd-l3-support-role
+
+aws ec2 describe-instances --filters "Name=instance-state,Values=running" --query "Reservations[].Instances[].InstanceId[].Instancetype"
+
+
+aws ec2 describe-instances --query "Reservations[*].Instances[*].{PublicIP:PublicIpAddress,PrivateIP:PrivateIpAddress,Name:Tags[?Key=='Name']|[0].Value,Type:InstanceType,Status:State.Name,VpcId:VpcId}" --filters Name=instance-state-name,Values=running  --output table --profile=867396380247_mnd-l3-support-role
+
+
+aws ec2 describe-instances --query "Reservations[*].Instances[*].{PrivateIP:PrivateIpAddress,Name:Tags[?Key=='Name']|[0].Value,Type:InstanceType,InstanceID:InstanceId,Status:State.Name,VpcId:VpcId,Launch time:Launch time}" --filters Name=instance-state-name,Values=running  --output table --profile=867396380247_mnd-l3-support-role >> instances.csv
+
+
+with launch time
+
+aws ec2 describe-instances --query "Reservations[*].Instances[*].{PrivateIP:PrivateIpAddress,Name:Tags[?Key=='Name']|[0].Value,Type:InstanceType,InstanceID:InstanceId,Status:State.Name,VpcId:VpcId,LaunchTime:LaunchTime}" --filters Name=instance-state-name,Values=running  --output table --profile=867396380247_mnd-l3-support-role >> instances.csv
+
+python which will pull from prod-as and prod-ds running instances to a outputfile
+
+compare two weeks report ,changes in any instance-type , instance-id , launchdate , for non-auto scaling ,and any new instances
+
+
+aws autoscaling describe-auto-scaling-instances 

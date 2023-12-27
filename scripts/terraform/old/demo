@@ -1,0 +1,70 @@
+variable "awsprops" {
+    type = map
+    default = {
+    region = "us-west-2"
+    vpc = "vpc-5234832d"
+    ami = "ami-08e2d37b6a0129927"
+    itype = "t2.micro"
+    subnet = "subnet-0546d662"
+    secgroupname = "ansible-controller"
+    profile = "011821064023_mnd-l3-support-role"
+  }
+}
+provider "aws" {
+  region = var. "region")
+  profile = var. "profile")
+}
+
+# using resources which are allready in aws  
+data "aws_security_group" "project-iac-sg" {
+  name = var. "secgroupname")
+  vpc_id = var. "vpc")
+}
+resource "aws_instance" "project-iac" {
+  ami = var. "ami")
+  instance_type = var. "itype")
+  subnet_id = var. "subnet") #FFXsubnet2
+
+  provisioner "remote-exec" {
+      inline = "sudo yum install git -y", "sudo yum install httpd -y"
+  }
+  
+  vpc_security_group_ids = 
+    aws_security_group.project-iac-sg.id
+  
+  root_block_device {
+    delete_on_termination = true
+    iops = 150
+    volume_size = 50
+    volume_type = "gp2"
+  }
+  tags = {
+    Name ="SERVER01"
+    Environment = "DEV"
+    OS = "UBUNTU"
+    Managed = "IAC"
+  }
+
+  depends_on =  aws_security_group.project-iac-sg 
+}
+
+output "ec2instance" {
+  value = aws_instance.project-iac.public_ip
+}
+
+===
+
+variable "docker_ports" {
+  type = list(object({
+    internal = number
+    external = number
+    protocol = string
+  }))
+  default = 
+    {
+      internal = 8300
+      external = 8300
+      protocol = "tcp"
+    }
+  
+}

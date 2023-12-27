@@ -1,0 +1,37 @@
+#!/bin/bash -xe
+export PATH="/usr/local/bin:$PATH"
+
+INSTANCE_ID="$(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
+
+aws configure set s3.signature_version s3v4
+
+mkdir -p /mnt{0..20}/s3 && chown -R hadoop:hadoop /mnt{0..20}/s3
+for i in {0..20}; do echo "-a always,exit -F dir=/mnt${i}/s3 -F perm=wa -F key=genie-mnt" /etc/audit/rules.d/50-genie.rules; done
+chkconfig auditd on
+service auditd restart
+mkdir /tmp/genie/
+
+# Script for user access update
+aws s3 cp s3://usw02-pr-pwr-s3-bootstrap/analytics/user_access/user-access-setup.sh ./user-access-setup.sh --region us-west-2
+chmod a+x ./user-access-setup.sh
+sudo ./user-access-setup.sh \
+    "usw02-prod-pwr-genie-ds" \
+    "ec2-user" \
+    "/opt/genie" \
+    "usw02-pr-pwr-s3-bootstrap"\
+    "us-west-2"
+
+aws s3 cp s3://usw02-pr-pwr-s3-bootstrap/analytics/genie/bootstrap/genie_bootstrap.sh ./genie_bootstrap.sh --region us-west-2
+
+chmod a+x ./genie_bootstrap.sh
+sudo ./genie_bootstrap.sh \
+    "gep-pr-emr-logs-us-west-2" \
+    "genie-ds" \
+    "$(aws ec2 describe-instances --region us-west-2 --query 'Reservations[].Instances[].[Tags[?Key==`Name`].Value]' --filter "Name=tag-key,Values=App" "Name=tag-value,Values=zookpr-ds" "Name=instance-state-name,Values=running,pending" --output json | jq '.[] | .[] | .[]' | sed 's/"//g' | awk -vORS=.predixdatafabric.com:2181, '{ print $1 }' | sed 's/,$/\n/')" \
+    "fs-9386563a.efs.us-west-2.amazonaws.com" \
+    "usw02-prod-pwr-genie-rds-postgresql.c2lok6xwg129.us-west-2.rds.amazonaws.com" \
+    "genie_metadata" \
+    "Z2VuaWUucHNxbC5wcmQubWFzdGVy" \
+    "genie_r1_metadb_analytic_services" \
+    "us-west-2" \
+    "arn:aws:iam::867396380247:role/usw02-prod-pwr-genie-ds-app-role"

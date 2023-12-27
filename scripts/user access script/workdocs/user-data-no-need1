@@ -1,0 +1,38 @@
+#!/bin/sh
+# this Script is used for copying content from a s3 object to instance 
+# This workarounf helps in enabling the access to anyone to access the instance
+# User who want to access the instance can upload there keys to the bucket given in the script 
+# And the keys get copied to the instances and can access immediatly 
+
+# Declaring variables 
+s3_loc="s3://ssh-key-btsrp/authorized_keys"
+useraccessloc="/opt/scripts/user_access_sync.sh"
+cronjobloc="/etc/cron.d/user_access_sync"
+auth_file="/home/$username/.ssh"
+
+yum install -y cronie 
+mkdir /opt/scripts
+
+#finding the usernames
+ls /home > username.txt
+
+#using the usernames and iterate the script
+file=username.txt
+for username in `cat $file`
+do
+echo "$username"
+
+
+touch $useraccessloc
+touch $cronjobloc
+
+cat << EOF > "$cronjobloc"
+*/1 * * * * root /opt/scripts/user_access_sync.sh
+EOF
+
+cat << EOF > "$useraccessloc"
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+aws s3 sync $s3_loc $auth_file --exact-timestamps
+EOF
+
+chmod a+x "$useraccessloc"

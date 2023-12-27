@@ -1,0 +1,142 @@
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.21.52
+The authenticity of host '10.201.21.52 (10.201.21.52)' can't be established.
+ECDSA key fingerprint is 80:36:99:26:cf:66:44:db:0b:47:03:e5:b0:45:4a:02.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.201.21.52' (ECDSA) to the list of known hosts.
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Permission denied (publickey).
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.21.52
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Permission denied (publickey).
+503265879@ip-10-8-0-237:~$
+503265879@ip-10-8-0-237:~$
+503265879@ip-10-8-0-237:~$
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.21.52
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Last login: Fri Apr  8 20:13:27 2022 from ip-10-8-0-237.us-west-2.compute.internal
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-10-201-21-52 ~]$ sudo su
+[root@ip-10-201-21-52 ec2-user]#
+[root@ip-10-201-21-52 ec2-user]#
+[root@ip-10-201-21-52 ec2-user]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         16G   68K   16G   1% /dev
+tmpfs            16G     0   16G   0% /dev/shm
+/dev/nvme0n1p1   69G  2.8G   67G   4% /
+[root@ip-10-201-21-52 ec2-user]# systemctl status airflow-worker
+bash: systemctl: command not found
+[root@ip-10-201-21-52 ec2-user]# service airflow-worker status
+Status of airflow-worker: [ STOPPED ]
+[root@ip-10-201-21-52 ec2-user]# service airflow-webserver status
+Status of airflow-webserver: [ RUNNING ]
+[root@ip-10-201-21-52 ec2-user]# service airflow-flower status
+Status of airflow-flower: [ RUNNING ]
+[root@ip-10-201-21-52 ec2-user]# cd /opt/airflow/logs/
+[root@ip-10-201-21-52 logs]# ls
+scheduler  webserver.log  webserver.log.2022-05-11.gz
+[root@ip-10-201-21-52 logs]# service airflow-worker start
+Starting airflow-worker...
+Status of airflow-worker: [ RUNNING ]
+[root@ip-10-201-21-52 logs]# service airflow-worker status
+Status of airflow-worker: [ RUNNING ]
+[root@ip-10-201-21-52 logs]#
+
+
+##################################################################
+
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.86.135
+The authenticity of host '10.201.86.135 (10.201.86.135)' can't be established.
+ECDSA key fingerprint is 49:e9:68:a9:0f:61:b2:c0:38:64:a7:e8:e6:9c:3a:e4.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.201.86.135' (ECDSA) to the list of known hosts.
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Last login: Fri Apr  8 19:51:01 2022 from ip-10-8-0-237.us-west-2.compute.internal
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-10-201-86-135 ~]$ sudo su
+[root@ip-10-201-86-135 ec2-user]# service airflow-worker status
+Status of airflow-worker: [ STOPPED ]
+[root@ip-10-201-86-135 ec2-user]# service airflow-webserver status
+Status of airflow-webserver: [ RUNNING ]
+[root@ip-10-201-86-135 ec2-user]# service airflow-flower status
+Status of airflow-flower: [ RUNNING ]
+[root@ip-10-201-86-135 ec2-user]# cd /opt/airflow/logs/
+[root@ip-10-201-86-135 logs]# ls
+scheduler  webserver.log  webserver.log.2022-05-11.gz
+[root@ip-10-201-86-135 logs]# service airflow-worker start
+Starting airflow-worker...
+Status of airflow-worker: [ RUNNING ]
+[root@ip-10-201-86-135 logs]# ls
+scheduler  webserver.log  webserver.log.2022-05-11.gz  worker.log
+[root@ip-10-201-86-135 logs]# pwd
+/opt/airflow/logs
+[root@ip-10-201-86-135 logs]#
+
+###################################################################
+
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.34.173
+The authenticity of host '10.201.34.173 (10.201.34.173)' can't be established.
+ECDSA key fingerprint is 33:f6:99:51:14:6a:bd:95:6d:a5:72:02:0a:8f:02:d8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.201.34.173' (ECDSA) to the list of known hosts.
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Last login: Fri Apr  8 20:11:42 2022 from ip-10-8-0-237.us-west-2.compute.internal
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-10-201-34-173 ~]$ sudo su
+[root@ip-10-201-34-173 ec2-user]# service airflow-worker status
+Status of airflow-worker: [ STOPPED ]
+[root@ip-10-201-34-173 ec2-user]# service airflow-webserver status
+Status of airflow-webserver: [ RUNNING ]
+[root@ip-10-201-34-173 ec2-user]# service airflow-flower status
+Status of airflow-flower: [ RUNNING ]
+[root@ip-10-201-34-173 ec2-user]# cd /opt/airflow/logs/
+[root@ip-10-201-34-173 logs]# ls
+scheduler  webserver.log  webserver.log.2022-05-11.gz
+[root@ip-10-201-34-173 logs]# service airflow-worker start
+Starting airflow-worker...
+Status of airflow-worker: [ RUNNING ]
+[root@ip-10-201-34-173 logs]# ls
+scheduler  webserver.log  webserver.log.2022-05-11.gz  worker.log
+[root@ip-10-201-34-173 logs]# pwd
+/opt/airflow/logs
+[root@ip-10-201-34-173 logs]#
+
+###################################################################
+
+503265879@ip-10-8-0-237:~$ ssh ec2-user@10.201.16.46
+The authenticity of host '10.201.16.46 (10.201.16.46)' can't be established.
+ECDSA key fingerprint is 97:0e:95:27:8c:1e:e5:69:b8:57:ee:e5:56:77:eb:92.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.201.16.46' (ECDSA) to the list of known hosts.
+Authorized uses only. All activity may be monitored and reported.
+Enter passphrase for key '/home/503265879/.ssh/id_rsa':
+Last login: Fri Apr  8 20:21:52 2022 from ip-10-8-0-237.us-west-2.compute.internal
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-10-201-16-46 ~]$ sudo su
+[root@ip-10-201-16-46 ec2-user]# service airflow-scheduler status
+Status of airflow-scheduler: [ RUNNING ]
+
