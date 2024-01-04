@@ -24,7 +24,7 @@ variable "vpc" {
 
 variable "ami" {
   type        = string
-  default = "ami-08e2d37b6a0129927"
+  default = ""
   description = "The id of the machine image (AMI) to use for the server."
 }
 
@@ -48,7 +48,7 @@ variable "secgroupname" {
 
 variable "profile" {
   type        = string
-  default = "011821064023_mnd-l3-support-role"
+  default = "e"
   description = "the profile name defined here which helps in authentication to aws "
 }
 
