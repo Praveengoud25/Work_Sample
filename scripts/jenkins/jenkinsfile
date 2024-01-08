@@ -1,0 +1,146 @@
+#!/usr/bin/env groovy
+
+branchName=env.BRANCH_NAME
+RESOURCE=env.RESOURCE
+ROLENAME='terraform-admin'
+session_name='TF-session'
+auto_approve=''
+
+stage_aws_account='$id'
+dev_aws_account='$ID'
+prod_aws_account='$ID'
+
+tf_work_dir="terraform/environments/${TIER}/us-west-2/analytics/${RESOURCE}"
+
+node("aws-deploy") {
+    parameters {
+      string(name: 'TIER', defaultValue: 'dev', description: 'What tier to deploy to')
+      string(name: 'RESOURCE', defaultValue: 'NONE', description: 'What instantiation of a TF module')
+      string(name: 'ACTION', defaultValue: 'plan', description: 'What action to run on TG')
+      string(name: 'CUSTOMER_APM_TENANT_ID', defaultValue: 'default_customer_apm_tenant_id', description: 'Determines which customer tenant ID ')
+    } 
+   
+    if (RESOURCE.equals("management")) {
+      tf_work_dir="terraform/environments/${TIER}/us-west-2/${RESOURCE}"
+    }
+    if (TIER.equals("sandbox")) {
+      tf_work_dir="terraform/environments/sandbox/us-west-2/analytics/${RESOURCE}"
+    }
+
+    if (RESOURCE.equals("cap_ssm_provisioner")) {
+      tf_work_dir="terraform/environments/cf3/us-west-2/${RESOURCE}"
+    }
+    
+    stage('Checkout') {
+        echo "Parameters - Tier $TIER, Rolename $ROLENAME, Resource $RESOURCE, Action $ACTION"
+        echo 'Checking out Terraform CloudInfraAutomation'
+        checkout scm
+        sh("echo BranchName: $branchName")
+    }
+
+    stage('Assume-Analytic-Deploy-Role') {
+      echo "Jenkins is assuming ${ROLENAME} role on ${TIER} tier"
+      def version = "1.2"
+      switch(TIER) {
+       case "dev":
+        role_arn = "arn:aws:iam::${dev_aws_account}:role/${ROLENAME}"
+        break
+       case "stage":
+        role_arn = "arn:aws:iam::${stage_aws_account}:role/${ROLENAME}"
+        break
+       case "sandbox":
+        role_arn = "arn:aws:iam::${stage_aws_account}:role/${ROLENAME}"
+        break
+       case "prod":
+        role_arn = "arn:aws:iam::${prod_aws_account}:role/${ROLENAME}"
+        break
+       default:
+        role_arn = "Null"
+        break
+      }
+      echo "Role arn: ${role_arn}"
+      withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_POWER_TF_DEV', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+        sh("aws sts assume-role --output json --role-arn '${role_arn}' --role-session-name '${session_name}' > ~/temp_creds")
+      }
+
+      withCredentials([usernamePassword(credentialsId: 'INFRA_GIT_TOKEN', usernameVariable: 'INFRA_GIT_USERNAME', passwordVariable: 'INFRA_GIT_PASSWORD')]) {
+        sh """
+          git config --global credential.helper store
+          echo \"https://${INFRA_GIT_USERNAME}:${INFRA_GIT_PASSWORD}@github.build.ge.com\" > ~/.git-credentials
+          cat ~/.git-credentials
+        """
+      }
+    }
+
+    stage('Get-terraform') {
+      // Get the Terraform tool.
+      def tfHome = tool name: 'Terraform', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+      env.PATH = "${tfHome}:${env.PATH}"
+      sh("terraform --version")
+
+      // Get the Terragrunt tool.
+      def tgHome = tool name: 'Terragrunt', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+      env.PATH = "${tgHome}:${env.PATH}"
+      sh("terragrunt --version")    
+      }
+
+    if (ACTION.equals("apply")) {
+      stage('Plan-terragrunt-apply') {
+
+        sh """
+          set +x
+          # Set up the AWS keys in the environment
+          export AWS_ACCESS_KEY_ID=`cat ~/temp_creds | jq -r '.Credentials.AccessKeyId'`
+          export AWS_SECRET_ACCESS_KEY=`cat ~/temp_creds | jq -r '.Credentials.SecretAccessKey'`
+          export AWS_SESSION_TOKEN=`cat ~/temp_creds | jq -r '.Credentials.SessionToken'`
+
+          set -x
+          # run plan first
+          terragrunt plan -no-color --terragrunt-non-interactive --terragrunt-working-dir ${tf_work_dir} --var 'customer_apm_tenant_id=${CUSTOMER_APM_TENANT_ID}'
+
+        """
+
+        //  wait for approval
+        input 'Deploy stack?'
+
+        auto_approve="-auto-approve"
+      }
+    }
+
+    if (ACTION.equals("destroy")) {
+        sh """
+          set +x
+          # Set up the AWS keys in the environment
+          export AWS_ACCESS_KEY_ID=`cat ~/temp_creds | jq -r '.Credentials.AccessKeyId'`
+          export AWS_SECRET_ACCESS_KEY=`cat ~/temp_creds | jq -r '.Credentials.SecretAccessKey'`
+          export AWS_SESSION_TOKEN=`cat ~/temp_creds | jq -r '.Credentials.SessionToken'`
+
+          set -x
+          # run plan first
+          terragrunt plan -destroy -no-color --terragrunt-non-interactive --terragrunt-working-dir ${tf_work_dir} --var 'customer_apm_tenant_id=${CUSTOMER_APM_TENANT_ID}'
+
+        """
+
+        //  wait for approval
+        input 'Destroy stack?'
+        input '*** Confirm destroy ***'
+
+        auto_approve="-auto-approve"
+    }
+
+    stage('Run-terragrunt') {
+      sh """
+        set +x
+        # Set up the AWS keys in the environment
+        export AWS_ACCESS_KEY_ID=`cat ~/temp_creds | jq -r '.Credentials.AccessKeyId'`
+        export AWS_SECRET_ACCESS_KEY=`cat ~/temp_creds | jq -r '.Credentials.SecretAccessKey'`
+        export AWS_SESSION_TOKEN=`cat ~/temp_creds | jq -r '.Credentials.SessionToken'`
+
+        set -x
+        # run Terragrunt
+        echo "Running $ACTION on $RESOURCE in $TIER"
+        terragrunt ${ACTION} -no-color ${auto_approve} --terragrunt-non-interactive --terragrunt-working-dir ${tf_work_dir} --var 'customer_apm_tenant_id=${CUSTOMER_APM_TENANT_ID}'
+
+      """
+    }
+}
